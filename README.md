@@ -25,4 +25,4 @@
 
 #### Contacts
 - Email - contato@rixxer.com.br<br/>
-- Phone/WhatsApp - [3533311984](https://wa.me/553533311984)
+- Phone/WhatsApp - [(35) 3331-1984](https://wa.me/553533311984)
