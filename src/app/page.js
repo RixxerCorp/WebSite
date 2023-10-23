@@ -1,5 +1,68 @@
 import Image from 'next/image'
 
+const express = require('express');
+const app = express();
+
+app.get("/", async (req, res) => {
+    const apiUrl = "https://api.iagentesmtp.com.br/api/v3/send/";
+    const apiUsuario = "contato@rixxer.com.br";
+    const apiChave = "6t6g7715666qpm5100k789e06i673jgap3vnak8e35u1qi689";
+    
+    const dados = {
+        "api_user": apiUsuario,
+        "api_key": apiChave,
+        "to":
+            [{
+                "email": "hebertdev82@gmail.com",
+                "name": "Hebert"
+            }],
+        "from":
+            {
+                "name": "Rixxer",
+                "email": "contato@rixxer.com.br",
+                "reply_to": "contato@rixxer.com.br"
+            },
+        "subject": "Assunto",
+        "html": "Olá Mundo",
+        "text": "Olá Mundo",
+        "campanhaid": "1",
+        "addheaders":
+        {
+            "x-priority": "1"
+        }
+    }
+    
+    try {
+        const resposta = await fetch(apiUrl, {
+            method: 'POST',
+            body: JSON.stringify(dados),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        const dadosResposta = await resposta.json();
+        
+        if (dadosResposta.status === 'ok') {
+            return res.send("E-mail enviado com sucesso!");
+        } else if (dadosResposta.status === 'failed') {
+            return res.status(400).send("Erro ao enviar o e-mail: " + dadosResposta.message);
+        } else {
+            return res.status(500).send("Resposta desconhecida do servidor!");
+        }
+        
+    } catch (error) {
+        return res.status(500).send("Erro ao processar a solicitação: " + error.message)
+    }
+});
+
+app.listen(8000, () => {
+    console.log("Servidor iniciado na porta 8000: http://localhost:8000");
+});
+
+
+
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
