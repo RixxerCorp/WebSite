@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 app.get("/", async (req, res) => {
-    const apiUrl = "https://api.iagentesmtp.com.br/api/v3/send/";
+    const apiUrl = "api.iagentesmtp.com.br/api/v3/send/";
     const apiUsuario = "contato@rixxer.com.br";
     const apiChave = "6t6g7715666qpm5100k789e06i673jgap3vnak8e35u1qi689";
     
@@ -59,9 +59,6 @@ app.get("/", async (req, res) => {
 // app.listen(8080, () => {
 //     console.log("Servidor iniciado na porta 8080: http://localhost:8080");
 // });
-
-
-
 
 export default function Home() {
   return (
