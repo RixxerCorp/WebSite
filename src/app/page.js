@@ -1,64 +1,4 @@
-import Image from 'next/image'
-
-const express = require('express');
-const app = express();
-
-app.get("/", async (req, res) => {
-    const apiUrl = "api.iagentesmtp.com.br/api/v3/send/";
-    const apiUsuario = "contato@rixxer.com.br";
-    const apiChave = "6t6g7715666qpm5100k789e06i673jgap3vnak8e35u1qi689";
-    
-    const dados = {
-        "api_user": apiUsuario,
-        "api_key": apiChave,
-        "to":
-            [{
-                "email": "hebertdev82@gmail.com",
-                "name": "Hebert"
-            }],
-        "from":
-            {
-                "name": "Rixxer",
-                "email": "contato@rixxer.com.br",
-                "reply_to": "contato@rixxer.com.br"
-            },
-        "subject": "Assunto",
-        "html": "Olá Mundo",
-        "text": "Olá Mundo",
-        "campanhaid": "1",
-        "addheaders":
-        {
-            "x-priority": "1"
-        }
-    }
-    
-    try {
-        const resposta = await fetch(apiUrl, {
-            method: 'POST',
-            body: JSON.stringify(dados),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        
-        const dadosResposta = await resposta.json();
-        
-        if (dadosResposta.status === 'ok') {
-            return res.send("E-mail enviado com sucesso!");
-        } else if (dadosResposta.status === 'failed') {
-            return res.status(400).send("Erro ao enviar o e-mail: " + dadosResposta.message);
-        } else {
-            return res.status(500).send("Resposta desconhecida do servidor!");
-        }
-        
-    } catch (error) {
-        return res.status(500).send("Erro ao processar a solicitação: " + error.message)
-    }
-});
-
-// app.listen(8080, () => {
-//     console.log("Servidor iniciado na porta 8080: http://localhost:8080");
-// });
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -73,9 +13,9 @@ export default function Home() {
           height={37}
           priority
         />
-        <h1 className='text-2xl'>|&nbsp;&nbsp; Site em Construção</h1>
+        <h1 className="text-2xl">|&nbsp;&nbsp; Site em Construção</h1>
       </div>
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left"></div>
     </main>
-  )
+  );
 }
