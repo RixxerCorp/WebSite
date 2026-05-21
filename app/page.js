@@ -4,13 +4,10 @@ export default function BentoTechComingSoon() {
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-zinc-950 p-4 font-sans select-none overflow-y-auto selection:bg-zinc-800 selection:text-emerald-400">
       
-      {/* Luz de fundo difusa (Glow Cibernético) */}
       <div className="absolute top-1/2 left-1/2 -z-10 h-[500px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none" />
 
-      {/* Grid: Altura automática no mobile (auto-rows-auto) e fixa no desktop (md:auto-rows-[140px]) */}
       <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-auto md:auto-rows-[140px] relative z-10 my-auto py-8 md:py-0">
         
-        {/* CARD 1: Status do Sistema */}
         <div className="md:col-span-1 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 flex flex-col justify-between gap-4 md:gap-0 backdrop-blur-sm shadow-xl">
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono tracking-wider text-zinc-500 uppercase">Status</span>
@@ -25,9 +22,7 @@ export default function BentoTechComingSoon() {
           </div>
         </div>
 
-        {/* CARD 2: TÍTULO PRINCIPAL (Corrigido para mobile) */}
         <div className="md:col-span-2 md:row-span-2 rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 sm:p-8 flex flex-col justify-between gap-6 md:gap-0 backdrop-blur-sm shadow-xl relative overflow-hidden group">
-          {/* Detalhe de linha de grade sutil no fundo do card */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-15" />
           
           <div className="relative z-10">
@@ -49,11 +44,9 @@ export default function BentoTechComingSoon() {
           </div>
         </div>
 
-        {/* CARD 3: Interface Tech Oculta */}
         <div className="md:col-span-1 md:row-span-2 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 flex flex-col justify-between gap-4 md:gap-0 backdrop-blur-sm shadow-xl overflow-hidden relative">
           <div className="text-xs font-mono tracking-wider text-zinc-500 uppercase">Source Code</div>
           
-          {/* Código falso borrado */}
           <div className="font-mono text-[10px] text-zinc-600 space-y-1.5 my-2 md:my-4 blur-[1px] select-none pointer-events-none opacity-60">
             <p className="text-emerald-500/80">import &#123; supabase &#125; from './client';</p>
             <p>export async function init() &#123;</p>
@@ -73,18 +66,15 @@ export default function BentoTechComingSoon() {
           </div>
         </div>
 
-        {/* CARD 4: Mensagem de Rodapé + REDES SOCIAIS */}
         <div className="md:col-span-2 rounded-2xl border border-zinc-800/80 bg-zinc-900/20 p-5 flex flex-col sm:flex-row items-center justify-between gap-4 backdrop-blur-sm shadow-xl font-mono text-xs text-zinc-500">
           <div className="flex items-center gap-2 text-center sm:text-left">
             <span className="text-zinc-600 hidden sm:inline">&lt;/&gt;</span>
-            <span>© {new Date().getFullYear()} • Encrypted Connection</span>
+            <span>© {new Date().getFullYear()} • Rixxer</span>
           </div>
 
-          {/* Bloco das Redes Sociais */}
           <div className="flex items-center gap-4 select-text">
             <span className="text-[10px] uppercase tracking-wider text-zinc-600 pointer-events-none hidden xs:inline">Connect:</span>
             
-            {/* WhatsApp */}
             <a 
               href="https://wa.me/5535984265018" 
               target="_blank" 
@@ -97,7 +87,6 @@ export default function BentoTechComingSoon() {
               </svg>
             </a>
 
-            {/* LinkedIn */}
             <a 
               href="https://www.linkedin.com/company/rixxerbr/" 
               target="_blank" 
@@ -110,7 +99,6 @@ export default function BentoTechComingSoon() {
               </svg>
             </a>
 
-            {/* Instagram */}
             <a 
               href="https://www.instagram.com/rixxerbr" 
               target="_blank" 
@@ -123,7 +111,6 @@ export default function BentoTechComingSoon() {
               </svg>
             </a>
 
-            {/* Facebook */}
             <a 
               href="https://www.facebook.com/rixxerbr" 
               target="_blank" 
