@@ -17,7 +17,7 @@ export default function BentoTechComingSoon() {
             </span>
           </div>
           <div>
-            <div className="text-2xl font-bold font-mono text-zinc-100 tracking-tight">35.2%</div>
+            <div className="text-2xl font-bold font-mono text-zinc-100 tracking-tight">94.2%</div>
             <p className="text-[11px] text-zinc-500 font-medium">Ambiente de produção compilado</p>
           </div>
         </div>
@@ -73,17 +73,29 @@ export default function BentoTechComingSoon() {
           </div>
 
           <div className="flex items-center gap-4 select-text">
-            <span className="text-[10px] uppercase tracking-wider text-zinc-600 pointer-events-none hidden xs:inline">Follow us:</span>
+            <span className="text-[10px] uppercase tracking-wider text-zinc-600 pointer-events-none hidden xs:inline">Connect:</span>
             
             <a 
-              href="https://www.facebook.com/rixxerbr" 
+              href="https://wa.me/5535984265018" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-1 text-zinc-500 hover:text-green-400 transition-colors duration-200"
+              title="WhatsApp"
+            >
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.66.986 3.288 1.488 5.273 1.489 5.34 0 9.685-4.346 9.688-9.691.002-2.592-1.003-5.029-2.831-6.859-1.828-1.829-4.258-2.836-6.86-2.837-5.346 0-9.69 4.345-9.693 9.693-.001 2.02.531 3.61 1.484 5.256L2.693 21.32l5.074-1.332zm11.393-7.464c-.3-.149-1.774-.875-2.04-.972-.268-.099-.463-.149-.658.149-.195.299-.754.972-.925 1.166-.17.194-.339.219-.639.07-1.442-.619-2.42-1.246-3.38-2.898-.25-.429.25-.399.715-1.324.075-.15.037-.282-.019-.396-.056-.113-.463-1.117-.634-1.529-.166-.399-.333-.344-.462-.351-.119-.006-.256-.008-.393-.008-.137 0-.361.051-.55.258-.19.206-.722.706-.722 1.722 0 1.017.74 2.004.843 2.142.103.137 1.455 2.221 3.525 3.116.493.213.878.34 1.179.436.496.157.949.135 1.306.081.399-.06 1.774-.726 2.023-1.426.249-.699.249-1.299.174-1.426-.075-.127-.27-.201-.569-.349z"/>
+              </svg>
+            </a>
+
+            <a 
+              href="https://www.linkedin.com/company/rixxerbr/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="p-1 text-zinc-500 hover:text-emerald-400 transition-colors duration-200"
-              title="Facebook"
+              title="LinkedIn"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
             </a>
 
@@ -100,14 +112,14 @@ export default function BentoTechComingSoon() {
             </a>
 
             <a 
-              href="https://www.linkedin.com/company/rixxerbr/" 
+              href="https://www.facebook.com/rixxerbr" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="p-1 text-zinc-500 hover:text-emerald-400 transition-colors duration-200"
-              title="LinkedIn"
+              title="Facebook"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/>
               </svg>
             </a>
           </div>
