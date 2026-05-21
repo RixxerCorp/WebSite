@@ -17,7 +17,7 @@ export default function BentoTechComingSoon() {
             </span>
           </div>
           <div>
-            <div className="text-2xl font-bold font-mono text-zinc-100 tracking-tight">94.2%</div>
+            <div className="text-2xl font-bold font-mono text-zinc-100 tracking-tight">34.6%</div>
             <p className="text-[11px] text-zinc-500 font-medium">Ambiente de produção compilado</p>
           </div>
         </div>
