@@ -32,7 +32,7 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
           <Link href="/" className="flex items-center">
-            <Image src="/logo-principal-fundo-azul-escuro.png" alt="Rixxer" width={130} height={40} className="object-contain" priority />
+            <Image src="/rixxer.png" alt="Rixxer" width={130} height={40} className="object-contain" priority />
           </Link>
 
           {/* Desktop nav */}
@@ -80,7 +80,7 @@ export default function Layout({ children }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
 
             <div className="md:col-span-2">
-              <Image src="/logo-principal-fundo-azul-escuro.png" alt="Rixxer" width={140} height={42} className="object-contain mb-4" />
+              <Image src="/rixxer.png" alt="Rixxer" width={140} height={42} className="object-contain mb-4" />
               <p className="text-white/50 text-sm leading-relaxed max-w-sm">
                 Transformamos ideias em soluções digitais que geram resultado. Sites, apps, sistemas, design e gestão de redes sociais.
               </p>
