@@ -2,7 +2,7 @@ import Layout from './components/layout';
 import './globals.css';
 
 export const metadata = {
-  title: 'Rixxer Tech Solutions',
+  title: 'Rixxer',
   description: 'Software House especializada em sites, apps, sistemas e design.',
 };
 
