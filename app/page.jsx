@@ -65,7 +65,7 @@ export default function HomePage() {
           <div className="max-w-4xl">
             <div className="flex items-center gap-3 mb-8">
               <span className="w-8 h-0.5 bg-[#3AACB8]" />
-              <span className="text-[#3AACB8] text-xs font-bold uppercase tracking-[0.3em]">Rixxer Tech Solutions</span>
+              <span className="text-[#3AACB8] text-xs font-bold uppercase tracking-[0.3em]">Rixxer</span>
             </div>
 
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter mb-8">
@@ -95,7 +95,7 @@ export default function HomePage() {
         </div>
 
         <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none hidden lg:block">
-          <Image src="/rixxer.png" alt="" width={500} height={500} className="object-contain" />
+          <Image src="/rixxer2.png" alt="" width={700} height={700} className="object-contain" />
         </div>
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
