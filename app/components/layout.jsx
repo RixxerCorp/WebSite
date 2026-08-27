@@ -32,7 +32,7 @@ export default function Layout({ children }) {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
           <Link href="/" className="flex items-center">
-            <Image src="/rixxer.png" alt="Rixxer" width={130} height={40} className="object-contain" priority />
+            <Image src="/rixxer.png" alt="Rixxer" width={130} height={40} className="object-contain" preload />
           </Link>
 
           {/* Desktop nav */}

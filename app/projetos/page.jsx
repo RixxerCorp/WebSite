@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import Reveal from '../components/Reveal';
+import MagneticButton from '../components/MagneticButton';
 
 function XPattern() {
   return (
@@ -98,17 +99,21 @@ export default function ProjetosPage() {
         <XPattern />
         <div className="absolute top-1/2 right-1/3 w-[500px] h-[500px] bg-[#3AACB8]/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-3 mb-6">
+          <Reveal className="flex items-center gap-3 mb-6">
             <span className="w-8 h-0.5 bg-[#3AACB8]" />
             <span className="text-[#3AACB8] text-xs font-bold uppercase tracking-[0.3em]">Portfólio</span>
-          </div>
-          <h1 className="text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
-            Projetos que<br />
-            <span className="text-[#3AACB8]">falam por si.</span>
-          </h1>
-          <p className="text-white/50 text-xl font-light max-w-xl leading-relaxed">
-            São mais de 400 projetos entregues para clientes de diferentes segmentos. Aqui estão alguns dos nossos favoritos.
-          </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
+              Projetos que<br />
+              <span className="text-[#3AACB8]">falam por si.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="text-white/50 text-xl font-light max-w-xl leading-relaxed">
+              São mais de 400 projetos entregues para clientes de diferentes segmentos. Aqui estão alguns dos nossos favoritos.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -132,8 +137,8 @@ export default function ProjetosPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24">
             {filtrados.map((p, i) => (
-              <div key={i}
-                className={`bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col
+              <Reveal key={`${categoriaAtiva}-${p.titulo}`} delay={i * 60}
+                className={`bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full
                   ${p.destaque ? 'md:col-span-1' : ''}`}>
 
                 <div className="h-3 w-full" style={{ background: `linear-gradient(to right, ${p.cor}, #3AACB8)` }} />
@@ -161,15 +166,15 @@ export default function ProjetosPage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#0D0D14] py-24 relative overflow-hidden">
+      <section className="bg-[#0D0D14] py-24 relative overflow-hidden bg-grain">
         <XPattern />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <Reveal className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <span className="text-[#6B2D8B] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Próximo projeto?</span>
           <h2 className="text-5xl font-black uppercase tracking-tighter text-white mb-6">
             O seu pode ser<br />
@@ -178,11 +183,11 @@ export default function ProjetosPage() {
           <p className="text-white/50 text-lg font-light mb-10 max-w-md mx-auto">
             Vamos construir algo juntos. Fale com a gente e receba uma proposta em até 24h.
           </p>
-          <Link href="/contato"
-            className="inline-block bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold px-10 py-4 rounded-lg uppercase tracking-widest text-sm transition-all duration-200 hover:scale-105 shadow-xl shadow-purple-900/40">
+          <MagneticButton href="/contato"
+            className="bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold px-10 py-4 rounded-lg uppercase tracking-widest text-sm shadow-xl shadow-purple-900/40">
             Solicitar Proposta
-          </Link>
-        </div>
+          </MagneticButton>
+        </Reveal>
       </section>
 
     </div>
