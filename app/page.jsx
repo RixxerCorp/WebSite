@@ -5,6 +5,7 @@ import Marquee from './components/Marquee';
 import MagneticButton from './components/MagneticButton';
 import TerminalWidget from './components/TerminalWidget';
 import AlicerceCard from './components/AlicerceCard';
+import GoogleRating from './components/GoogleRating';
 import {
   IconGlobe,
   IconDevice,
@@ -360,10 +361,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6">
           <Reveal className="text-center mb-14">
             <span className="text-[#6B2D8B] text-xs font-bold uppercase tracking-[0.3em] mb-3 block">Clientes</span>
-            <h2 className="text-5xl font-black uppercase tracking-tighter text-[#0D0D14]">
+            <h2 className="text-5xl font-black uppercase tracking-tighter text-[#0D0D14] mb-5">
               Quem trabalhou<br />
               <span className="text-[#6B2D8B]">sabe o resultado.</span>
             </h2>
+            <GoogleRating className="text-gray-500 text-sm font-medium justify-center" starClassName="text-[#6B2D8B]" />
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import Layout from './components/layout';
+import LocalBusinessSchema from './components/LocalBusinessSchema';
 import './globals.css';
 
 export const metadata = {
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body>
+        <LocalBusinessSchema />
         <Layout>{children}</Layout>
 
         <Script
