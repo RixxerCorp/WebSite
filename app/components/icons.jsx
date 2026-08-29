@@ -118,6 +118,22 @@ export function IconEye(props) {
   );
 }
 
+export function IconHeart(props) {
+  return (
+    <Base {...props}>
+      <path d="M12 20.5c-.3 0-.6-.1-.8-.3C7.5 17.4 3 13.7 3 9.6 3 6.9 5.1 5 7.6 5c1.6 0 3.1.8 4 2.1.9-1.3 2.4-2.1 4-2.1C18.1 5 21 6.9 21 9.6c0 4.1-4.5 7.8-8.2 10.6-.2.2-.5.3-.8.3z" />
+    </Base>
+  );
+}
+
+export function IconSpark(props) {
+  return (
+    <Base {...props}>
+      <path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z" />
+    </Base>
+  );
+}
+
 export function IconBolt(props) {
   return (
     <Base {...props}>

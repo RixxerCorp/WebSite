@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Reveal from '../components/Reveal';
 import CountUp from '../components/CountUp';
 import MagneticButton from '../components/MagneticButton';
-import { IconTarget, IconEye, IconBolt, IconBulb } from '../components/icons';
+import { IconTarget, IconEye, IconBolt, IconBulb, IconHeart, IconSpark } from '../components/icons';
 
 function XPattern() {
   return (
@@ -25,6 +25,8 @@ const valores = [
   { Icon: IconEye, titulo: 'Transparência Total', desc: 'Nada de esconder prazo ou custo. Você sabe o que está sendo feito, quando e quanto custa, sempre.' },
   { Icon: IconBolt, titulo: 'Velocidade com Qualidade', desc: 'Processos ágeis que entregam rápido sem cortar atalhos na qualidade técnica e no design.' },
   { Icon: IconBulb, titulo: 'Inovação Contínua', desc: 'Estudamos as últimas tecnologias para que você não precise: chegamos sempre com o que há de melhor.' },
+  { Icon: IconHeart, titulo: 'Diversidade e Acolhimento', desc: 'Somos reconhecidos como uma empresa que acolhe a comunidade LGBTQ+ — um ambiente respeitoso pra equipe e pra quem confia o projeto a nós.' },
+  { Icon: IconSpark, titulo: 'Liderança Feminina', desc: 'Nos identificamos como uma empresa de empreendedoras, com mulheres à frente de decisões que movem cada projeto pra frente.' },
 ];
 
 const tecnologias = [
@@ -112,7 +114,7 @@ export default function SobrePage() {
               <span className="text-[#6B2D8B]">cada decisão.</span>
             </h2>
           </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {valores.map((v, i) => (
               <Reveal key={i} delay={i * 70} className="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                 <v.Icon className="w-8 h-8 mb-4 text-[#6B2D8B] group-hover:scale-110 transition-transform duration-300" />
