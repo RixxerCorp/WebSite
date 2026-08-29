@@ -90,6 +90,7 @@ const depoimentos = [
   { nome: 'Leonardo Ortiz', cargo: 'CEO Revista Viva', texto: 'Manda muito bem, trabalho de alto nível. Parabéns!!!', inicial: 'L' },
   { nome: 'Igor Fonseca', cargo: 'Técnico em Informática', texto: 'Ótimos profissionais, sempre atendendo de uma forma atenciosa e entregando ótimos resultado.', inicial: 'I' },
   { nome: 'Jokasta Mariana', cargo: 'CEO The Seventies', texto: 'Empresa fantástica, uma agência que veste a camisa de seus clientes, excelente qualidade, dedicação e profissionalismo, agradecimentos mil por todo empenho e carinho do Hebert em cuidar de cada detalhe.', inicial: 'J' },
+  { nome: 'Fernanda Quintanilha', cargo: 'Artesã', texto: 'Fiquei encantada com o material apresentado! Super atencioso, profissional, humilde, sabe o que está fazendo, conseguiu transformar minhas idéias junto com as dele em um site que simplesmente me apaixonei!!! Eu agradeço de todo coração, vcs me conquistaram! Super recomendo.', inicial: 'F' },
 ];
 
 function XPattern() {
