@@ -3,7 +3,7 @@ import Reveal from './components/Reveal';
 import CountUp from './components/CountUp';
 import Marquee from './components/Marquee';
 import MagneticButton from './components/MagneticButton';
-import { whatsappLink } from '@/lib/site';
+import { SITE, whatsappLink } from '@/lib/site';
 import TerminalWidget from './components/TerminalWidget';
 import AlicerceCard from './components/AlicerceCard';
 import GoogleRating from './components/GoogleRating';
@@ -64,7 +64,7 @@ const numeros = [
   { valor: '400+', label: 'Projetos Entregues' },
   { valor: '20+', label: 'Clientes Ativos' },
   { valor: '10+', label: 'Anos de Mercado' },
-  { valor: '95%', label: 'Taxa de Satisfação' },
+  { valor: SITE.avaliacao.notaTexto, label: 'Nota no Google' },
 ];
 
 const clientes = [
