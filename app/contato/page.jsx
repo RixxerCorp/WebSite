@@ -41,17 +41,37 @@ const canais = [
 ];
 
 export default function ContatoPage() {
-  const [form, setForm] = useState({ nome: '', email: '', empresa: '', servico: '', mensagem: '' });
+  const [form, setForm] = useState({ nome: '', email: '', empresa: '', servico: '', mensagem: '', website: '' });
   const [enviado, setEnviado] = useState(false);
+  const [enviando, setEnviando] = useState(false);
+  const [erro, setErro] = useState('');
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Aqui você integra com seu backend, Formspree, EmailJS etc.
-    setEnviado(true);
+    if (enviando) return;
+    setEnviando(true);
+    setErro('');
+    try {
+      const res = await fetch('/api/contato', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Erro ao enviar.');
+      }
+      setForm({ nome: '', email: '', empresa: '', servico: '', mensagem: '', website: '' });
+      setEnviado(true);
+    } catch (err) {
+      setErro(`${err.message} Tente novamente ou fale conosco pelo WhatsApp.`);
+    } finally {
+      setEnviando(false);
+    }
   }
 
   return (
@@ -140,10 +160,22 @@ export default function ContatoPage() {
                     className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-300 resize-none" />
                 </div>
 
+                {/* Honeypot anti-spam: invisível para humanos */}
+                <input name="website" value={form.website} onChange={handleChange}
+                  tabIndex={-1} autoComplete="off" aria-hidden="true"
+                  className="absolute -left-[9999px] w-px h-px opacity-0" />
+
+                {erro && (
+                  <p role="alert" className="text-sm font-medium text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                    {erro}
+                  </p>
+                )}
+
                 <MagneticButton
-                  className="w-full bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold py-4 rounded-xl uppercase tracking-widest text-sm shadow-xl shadow-purple-900/20 mt-2"
+                  disabled={enviando}
+                  className="w-full bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold py-4 rounded-xl uppercase tracking-widest text-sm shadow-xl shadow-purple-900/20 mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   type="submit">
-                  Enviar Mensagem →
+                  {enviando ? 'Enviando...' : 'Enviar Mensagem →'}
                 </MagneticButton>
               </form>
             )}
