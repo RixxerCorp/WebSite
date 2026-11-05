@@ -62,7 +62,7 @@ const servicos = [
 
 const numeros = [
   { valor: '400+', label: 'Projetos Entregues' },
-  { valor: '20+', label: 'Clientes Ativos' },
+  { valor: '380+', label: 'Clientes Atendidos' },
   { valor: '10+', label: 'Anos de Mercado' },
   { valor: SITE.avaliacao.notaTexto, label: 'Nota no Google' },
 ];
