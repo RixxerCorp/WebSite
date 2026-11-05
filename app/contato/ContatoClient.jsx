@@ -90,7 +90,7 @@ export default function ContatoClient() {
           <Reveal delay={80}>
             <h1 className="text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
               Vamos construir<br />
-              <span className="text-[#6B2D8B]">algo juntos?</span>
+              <span className="text-[#B57BD6]">algo juntos?</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>

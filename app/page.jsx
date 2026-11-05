@@ -151,7 +151,7 @@ export default function HomePage() {
                   <span className="text-white">Seu negócio</span>
                 </Reveal>
                 <Reveal as="span" className="block" delay={160}>
-                  <span className="text-[#6B2D8B]">no próximo</span>
+                  <span className="text-[#B57BD6]">no próximo</span>
                 </Reveal>
                 <Reveal as="span" className="block" delay={240}>
                   <span className="relative inline-block">
@@ -296,8 +296,8 @@ export default function HomePage() {
                   <s.Icon
                     className={`w-8 h-8 mb-4 ${s.destaque ? 'text-[#3AACB8]' : 'text-[#6B2D8B]'} group-hover:scale-110 transition-transform duration-300`}
                   />
-                  <h3 className={`font-black uppercase tracking-tight mb-2 group-hover:text-[#6B2D8B] transition-colors duration-200 ${
-                    s.destaque ? 'text-white text-2xl' : 'text-[#0D0D14] text-base'
+                  <h3 className={`font-black uppercase tracking-tight mb-2 transition-colors duration-200 ${
+                    s.destaque ? 'text-white group-hover:text-[#B57BD6] text-2xl' : 'text-[#0D0D14] group-hover:text-[#6B2D8B] text-base'
                   }`}>
                     {s.titulo}
                   </h3>
@@ -399,7 +399,7 @@ export default function HomePage() {
           <span className="text-[#3AACB8] text-xs font-bold uppercase tracking-[0.3em] mb-6 block">Vamos começar?</span>
           <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter text-white leading-tight mb-6">
             Sua ideia merece<br />
-            <span className="text-[#6B2D8B]">sair do papel.</span>
+            <span className="text-[#B57BD6]">sair do papel.</span>
           </h2>
           <p className="text-white/50 text-lg font-light mb-12 max-w-xl mx-auto">
             Conte para a gente o que você precisa. Respondemos em até 24h com uma proposta personalizada.

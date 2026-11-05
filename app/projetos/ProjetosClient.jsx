@@ -155,7 +155,7 @@ export default function ProjetosClient() {
                   <h3 className="font-black text-[#0D0D14] uppercase tracking-tight text-xl mb-1 group-hover:text-[#6B2D8B] transition-colors duration-200">
                     {p.titulo}
                   </h3>
-                  <p className="text-[#3AACB8] text-xs font-bold uppercase tracking-widest mb-3">{p.cliente}</p>
+                  <p className="text-[#1B7F8B] text-xs font-bold uppercase tracking-widest mb-3">{p.cliente}</p>
                   <p className="text-gray-500 text-sm font-medium leading-relaxed flex-grow">{p.desc}</p>
 
                   <div className="mt-5 pt-5 border-t border-gray-100 flex flex-wrap gap-2">
@@ -175,10 +175,10 @@ export default function ProjetosClient() {
       <section className="bg-[#0D0D14] py-24 relative overflow-hidden bg-grain">
         <XPattern />
         <Reveal className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <span className="text-[#6B2D8B] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Próximo projeto?</span>
+          <span className="text-[#B57BD6] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Próximo projeto?</span>
           <h2 className="text-5xl font-black uppercase tracking-tighter text-white mb-6">
             O seu pode ser<br />
-            <span className="text-[#6B2D8B]">o próximo aqui.</span>
+            <span className="text-[#B57BD6]">o próximo aqui.</span>
           </h2>
           <p className="text-white/50 text-lg font-light mb-10 max-w-md mx-auto">
             Vamos construir algo juntos. Fale com a gente e receba uma proposta em até 24h.

@@ -75,7 +75,7 @@ export default function SobrePage() {
             <Reveal delay={80}>
               <h1 className="text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-8">
                 Tecnologia<br />
-                <span className="text-[#6B2D8B]">com propósito.</span>
+                <span className="text-[#B57BD6]">com propósito.</span>
               </h1>
             </Reveal>
             <Reveal delay={160}>
@@ -196,7 +196,7 @@ export default function SobrePage() {
         <Reveal className="relative z-10 max-w-xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-6">
             Quer fazer parte<br />
-            <span className="text-[#6B2D8B]">da nossa história?</span>
+            <span className="text-[#B57BD6]">da nossa história?</span>
           </h2>
           <p className="text-white/50 text-base font-light mb-10">
             Seja como cliente, parceiro ou parte da equipe — adoramos conhecer pessoas que querem crescer junto.

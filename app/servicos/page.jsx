@@ -108,7 +108,7 @@ export default function ServicosPage() {
           <Reveal delay={80}>
             <h1 className="text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
               Soluções digitais<br />
-              <span className="text-[#6B2D8B]">do começo ao fim.</span>
+              <span className="text-[#B57BD6]">do começo ao fim.</span>
             </h1>
           </Reveal>
           <Reveal delay={160}>
@@ -186,7 +186,7 @@ export default function ServicosPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processo.map((p, i) => (
               <Reveal key={i} delay={i * 80} className="bg-white/3 rounded-2xl border border-white/5 p-7 hover:border-[#6B2D8B]/50 transition-all duration-300 group">
-                <div className="w-10 h-10 rounded-xl bg-[#6B2D8B]/20 border border-[#6B2D8B]/30 flex items-center justify-center font-black text-[#6B2D8B] text-sm mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[#6B2D8B]/20 border border-[#6B2D8B]/30 flex items-center justify-center font-black text-[#B57BD6] text-sm mb-5">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <h3 className="font-black text-white uppercase tracking-tight text-base mb-2 group-hover:text-[#3AACB8] transition-colors duration-200">
