@@ -7,7 +7,7 @@ export default function LocalBusinessSchema() {
     name: SITE.nome,
     image: `${SITE.url}/rixxer.png`,
     url: SITE.url,
-    telephone: `+${SITE.whatsapps[0].numero}`,
+    telephone: SITE.whatsapps.map((w) => `+${w.numero}`),
     address: {
       '@type': 'PostalAddress',
       streetAddress: SITE.endereco.rua,
