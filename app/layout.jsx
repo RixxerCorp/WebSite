@@ -4,8 +4,24 @@ import LocalBusinessSchema from './components/LocalBusinessSchema';
 import './globals.css';
 
 export const metadata = {
-  title: 'Rixxer',
-  description: 'Software House especializada em sites, apps, sistemas e design.',
+  metadataBase: new URL('https://www.rixxer.com.br'),
+  title: {
+    default: 'Rixxer | Software House em São Lourenço - MG',
+    template: '%s | Rixxer',
+  },
+  description:
+    'Software House especializada em sites, apps, sistemas e design em São Lourenço - MG.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'Rixxer',
+    title: 'Rixxer | Software House em São Lourenço - MG',
+    description:
+      'Sites, aplicativos, sistemas, redes sociais, design e SEO para o seu negócio crescer.',
+    images: [{ url: '/rixxer2.png' }],
+  },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({ children }) {

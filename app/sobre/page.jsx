@@ -52,6 +52,13 @@ const numeros = [
   { valor: '4', label: 'Profissionais' },
 ];
 
+export const metadata = {
+  title: 'Sobre',
+  description:
+    'Conheça a Rixxer: software house de São Lourenço - MG, com cultura de diversidade, liderança feminina e foco em resultado para o cliente.',
+  alternates: { canonical: '/sobre' },
+};
+
 export default function SobrePage() {
   return (
     <div className="bg-[#0D0D14] text-white">

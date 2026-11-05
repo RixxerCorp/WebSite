@@ -85,6 +85,13 @@ const processo = [
   { titulo: 'Entrega & Suporte', desc: 'Lançamento acompanhado, treinamento da equipe e suporte pós-entrega garantido.' },
 ];
 
+export const metadata = {
+  title: 'Serviços',
+  description:
+    'Desenvolvimento web, aplicativos mobile, sistemas sob medida, gestão de redes sociais, design gráfico e SEO para empresas em São Lourenço - MG e todo o Brasil.',
+  alternates: { canonical: '/servicos' },
+};
+
 export default function ServicosPage() {
   return (
     <div className="bg-[#0D0D14] text-white">
