@@ -44,6 +44,12 @@ lib/
 public/                 # logos e og.jpg (imagem de compartilhamento, 1200×630)
 ```
 
+## Projetos (portfólio)
+
+Os projetos ficam em `lib/projetos.js` (o arquivo explica cada campo). Cada projeto gera a página
+`/projetos/<slug>` e entra no sitemap. Imagens: `public/projetos/<slug>/`.
+Seções como desafio, solução, entregas, resultados, galeria e link só aparecem se preenchidas.
+
 ## Onde editar
 
 - **Telefones, e-mail, endereço, nota/avaliações do Google, redes sociais:** `lib/site.js`

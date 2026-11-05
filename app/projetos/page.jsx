@@ -1,3 +1,4 @@
+import { projetos } from '@/lib/projetos';
 import ProjetosClient from './ProjetosClient';
 
 export const metadata = {
@@ -8,5 +9,9 @@ export const metadata = {
 };
 
 export default function ProjetosPage() {
-  return <ProjetosClient />;
+  // Envia ao componente de cliente só o que o cartão precisa (os textos longos ficam na página de detalhe).
+  const lista = projetos.map(({ slug, titulo, categoria, cliente, ano, cor, resumo, techs, link }) => ({
+    slug, titulo, categoria, cliente, ano, cor, resumo, techs, noAr: Boolean(link),
+  }));
+  return <ProjetosClient projetos={lista} />;
 }

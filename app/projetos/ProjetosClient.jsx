@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Reveal from '../components/Reveal';
+import Link from 'next/link';
 import MagneticButton from '../components/MagneticButton';
 
 function XPattern() {
@@ -22,70 +23,7 @@ function XPattern() {
 
 const categorias = ['Todos', 'Web', 'Mobile', 'Sistema', 'Design', 'Social'];
 
-const projetos = [
-  {
-    titulo: 'Portal Imobiliário',
-    categoria: 'Web',
-    cliente: 'Alexandria Negócios Imobiliários',
-    ano: '2026',
-    cor: '#6B2D8B',
-    desc: 'Site institucional completo com área restrita para corretores, com cadastro de imóveis para venda e locação, cadastro de clientes e cadastro de imóveis favoritos. O site ainda conta com um login para o próprio cliente, para favoritar imóveis e enviar seus próprios imóveis para venda.',
-    techs: ['Next.js', 'Tailwind', 'Vercel', 'PostgreSQL'],
-    destaque: true,
-  },
-  {
-    titulo: 'Site para Hamburgueria',
-    categoria: 'Web',
-    cliente: 'The Seventies Burgers',
-    ano: '2026',
-    cor: '#3AACB8',
-    desc: 'Site completo para divulgação do local, além de um sistema de delivery integrado com WhatsApp, onde o cliente pode escolher os itens do cardápio, personalizar seu pedido e enviar diretamente para o WhatsApp da hamburgueria.',
-    techs: ['Next.js', 'Tailwind', 'PostgreSQL', 'Stripe'],
-    destaque: true,
-  },
-  {
-    titulo: 'Revista Impressa',
-    categoria: 'Design',
-    cliente: 'VIVA São Lourenço',
-    ano: '2026',
-    cor: '#1A1F5E',
-    desc: 'Revista Impressa com 92 páginas, incluindo artigos, entrevistas, fotos e anúncios de comércios locais. Projeto gráfico completo, diagramação, revisão e arte final para impressão.',
-    techs: ['InDesign', 'Illustrator', 'Photoshop'],
-    destaque: true,
-  },
-  {
-    titulo: 'Banner para Impressão',
-    categoria: 'Design',
-    cliente: 'Espetinho da Vila',
-    ano: '2026',
-    cor: '#6B2D8B',
-    desc: 'Criação de material para divulgação para a Copa do Mundo, fechamento de arquivo e acompanhamento para impressão em lona.',
-    techs: ['InDesign', 'Illustrator', 'Photoshop'],
-    destaque: true,
-  },
-  {
-    titulo: 'Gestão de Redes - Lavanderia Mundial',
-    categoria: 'Social',
-    cliente: 'Lavanderia Mundial',
-    ano: 'Desde 2018',
-    cor: '#3AACB8',
-    desc: 'Gestão mensal de Instagram e Facebook com a criação de conteúdo, planejamento estratégico, monitoramento de métricas e campanhas de anúncios.',
-    techs: ['Meta Business', 'Photoshop', 'Edits', 'Google Meu Negócio'],
-    destaque: true,
-  },
-  {
-    titulo: 'Gestão de Redes — The Seventies Burgers',
-    categoria: 'Social',
-    cliente: 'The Seventies Burgers',
-    ano: 'desde 2025',
-    cor: '#1A1F5E',
-    desc: 'Gestão mensal de Instagram e Facebook com a criação de conteúdo, planejamento estratégico, monitoramento de métricas e campanhas de anúncios.',
-    techs: ['Meta Business', 'Photoshop', 'Edits', 'Google Meu Negócio'],
-    destaque: true,
-  },
-];
-
-export default function ProjetosClient() {
+export default function ProjetosClient({ projetos }) {
   const [categoriaAtiva, setCategoriaAtiva] = useState('Todos');
 
   const filtrados = categoriaAtiva === 'Todos'
@@ -137,9 +75,8 @@ export default function ProjetosClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24">
             {filtrados.map((p, i) => (
-              <Reveal key={`${categoriaAtiva}-${p.titulo}`} delay={i * 60}
-                className={`bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full
-                  ${p.destaque ? 'md:col-span-1' : ''}`}>
+              <Reveal key={`${categoriaAtiva}-${p.slug}`} delay={i * 60}
+                className={`bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full relative`}>
 
                 <div className="h-3 w-full" style={{ background: `linear-gradient(to right, ${p.cor}, #3AACB8)` }} />
 
@@ -153,10 +90,12 @@ export default function ProjetosClient() {
                   </div>
 
                   <h3 className="font-black text-[#0D0D14] uppercase tracking-tight text-xl mb-1 group-hover:text-[#6B2D8B] transition-colors duration-200">
-                    {p.titulo}
+                    <Link href={`/projetos/${p.slug}`} className="after:absolute after:inset-0 after:content-['']">
+                      {p.titulo}
+                    </Link>
                   </h3>
                   <p className="text-[#1B7F8B] text-xs font-bold uppercase tracking-widest mb-3">{p.cliente}</p>
-                  <p className="text-gray-500 text-sm font-medium leading-relaxed flex-grow">{p.desc}</p>
+                  <p className="text-gray-500 text-sm font-medium leading-relaxed flex-grow">{p.resumo}</p>
 
                   <div className="mt-5 pt-5 border-t border-gray-100 flex flex-wrap gap-2">
                     {p.techs.map((t, j) => (
@@ -165,6 +104,11 @@ export default function ProjetosClient() {
                       </span>
                     ))}
                   </div>
+
+                  <span className="mt-5 inline-flex items-center gap-2 text-[#6B2D8B] text-xs font-bold uppercase tracking-widest">
+                    Ver projeto <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                    {p.noAr && <span className="ml-auto text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">No ar</span>}
+                  </span>
                 </div>
               </Reveal>
             ))}
