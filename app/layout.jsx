@@ -19,9 +19,9 @@ export const metadata = {
     title: 'Rixxer | Software House em São Lourenço - MG',
     description:
       'Sites, aplicativos, sistemas, redes sociais, design e SEO para o seu negócio crescer.',
-    images: [{ url: '/rixxer2.png' }],
+    images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Rixxer' }],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: ['/og.jpg'] },
 };
 
 export default function RootLayout({ children }) {
