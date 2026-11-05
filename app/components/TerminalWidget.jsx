@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { prefersReducedMotion } from '@/lib/motion';
 
 const linhas = [
   { prefix: '$', text: 'rixxer init seu-projeto', color: 'text-white/70' },
@@ -15,6 +16,10 @@ export default function TerminalWidget() {
 
   useEffect(() => {
     if (visibleLines >= linhas.length) return;
+    if (prefersReducedMotion()) {
+      const t = setTimeout(() => setVisibleLines(linhas.length), 0);
+      return () => clearTimeout(t);
+    }
     const current = linhas[visibleLines].text;
 
     if (charCount < current.length) {

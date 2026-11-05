@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { prefersReducedMotion } from '@/lib/motion';
 
 export default function CountUp({ value, duration = 1600, className = '' }) {
   const ref = useRef(null);
@@ -27,6 +28,10 @@ export default function CountUp({ value, duration = 1600, className = '' }) {
     if (!started) return;
     const match = value.match(/^(\d+)(.*)$/);
     if (!match) return;
+    if (prefersReducedMotion()) {
+      const t = setTimeout(() => setDisplay(value), 0);
+      return () => clearTimeout(t);
+    }
     const target = parseInt(match[1], 10);
     const suffix = match[2];
     const start = performance.now();

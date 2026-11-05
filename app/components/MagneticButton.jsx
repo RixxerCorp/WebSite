@@ -2,13 +2,14 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import { prefersReducedMotion } from '@/lib/motion';
 
 export default function MagneticButton({ href, children, className = '', external = false, ...rest }) {
   const ref = useRef(null);
 
   function handleMove(e) {
     const el = ref.current;
-    if (!el) return;
+    if (!el || prefersReducedMotion()) return;
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;

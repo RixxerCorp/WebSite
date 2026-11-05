@@ -25,6 +25,13 @@ export default function Layout({ children }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuAberto) return;
+    const onKey = (e) => e.key === 'Escape' && setMenuAberto(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuAberto]);
+
   return (
     <>
       {/* ── Navbar ─────────────────────────────────────────────────────────── */}
@@ -53,7 +60,8 @@ export default function Layout({ children }) {
           </nav>
 
           {/* Mobile hamburger */}
-          <button onClick={() => setMenuAberto(!menuAberto)} className="md:hidden text-white p-2">
+          <button onClick={() => setMenuAberto(!menuAberto)} className="md:hidden text-white p-2"
+            aria-label={menuAberto ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuAberto} aria-controls="menu-mobile">
             <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all duration-200 ${menuAberto ? 'rotate-45 translate-y-2' : ''}`} />
             <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all duration-200 ${menuAberto ? 'opacity-0' : ''}`} />
             <div className={`w-6 h-0.5 bg-white transition-all duration-200 ${menuAberto ? '-rotate-45 -translate-y-2' : ''}`} />
@@ -62,7 +70,7 @@ export default function Layout({ children }) {
 
         {/* Mobile menu */}
         {menuAberto && (
-          <div className="md:hidden bg-[#0D0D14]/98 border-t border-white/5 px-6 py-6 flex flex-col gap-5">
+          <div id="menu-mobile" className="md:hidden bg-[#0D0D14]/98 border-t border-white/5 px-6 py-6 flex flex-col gap-5">
             {links.map((l) => (
               <Link key={l.href} href={l.href} onClick={() => setMenuAberto(false)}
                 className={`text-sm font-bold uppercase tracking-widest ${pathname === l.href ? 'text-[#3AACB8]' : 'text-white/70'}`}>
