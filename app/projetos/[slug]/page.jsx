@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Reveal from '../../components/Reveal';
 import MagneticButton from '../../components/MagneticButton';
 import { IconArrow, IconCheck } from '../../components/icons';
+import Galeria from './Galeria';
 import { projetos, getProjeto } from '@/lib/projetos';
 
 export function generateStaticParams() {
@@ -163,13 +164,7 @@ export default async function ProjetoPage({ params }) {
 
             {p.imagens?.length > 0 && (
               <Secao titulo="Galeria">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {p.imagens.map((img) => (
-                    <div key={img.src} className="relative aspect-[4/3] rounded-xl overflow-hidden border border-gray-200 bg-white">
-                      <Image src={img.src} alt={img.alt} fill sizes="(min-width: 640px) 320px, 100vw" className="object-cover" />
-                    </div>
-                  ))}
-                </div>
+                <Galeria imagens={p.imagens} />
               </Secao>
             )}
           </div>
