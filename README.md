@@ -58,13 +58,9 @@ O menu mobile expõe `aria-expanded` e fecha com a tecla Esc.
 
 ## Avaliações do Google (automático)
 
-A nota e o total de avaliações vêm da Places API (New) e são cacheados por 24h
-(`lib/google-reviews.js`). Variáveis de ambiente:
+Nota e total de avaliações são buscados no servidor e cacheados por 24h
+(`lib/google-reviews.js`). Fontes, em ordem de prioridade:
 
-```
-GOOGLE_PLACES_API_KEY=...   # chave restrita à Places API (New)
-GOOGLE_PLACE_ID=...         # Place ID da Rixxer (Place ID Finder)
-```
-
-Sem as variáveis, ou se a API falhar, o site usa o valor de reserva em `lib/site.js`
-(`SITE.avaliacao`).
+1. **Google Places API (New)** — `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` (exige faturamento no Google Cloud).
+2. **SerpApi** (plano gratuito) — `SERPAPI_API_KEY`; opcional `SERPAPI_QUERY` (padrão: "Rixxer São Lourenço MG").
+3. **Valor de reserva** em `lib/site.js` (`SITE.avaliacao`), usado se nada estiver configurado ou se a consulta falhar.
