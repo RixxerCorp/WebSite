@@ -2,7 +2,28 @@ import Script from 'next/script';
 import { SITE } from '@/lib/site';
 import Layout from './components/layout';
 import LocalBusinessSchema from './components/LocalBusinessSchema';
+import localFont from 'next/font/local';
 import './globals.css';
+
+// Fontes hospedadas no próprio projeto (sem requisição ao Google).
+const inter = localFont({
+  src: './fonts/inter-latin-wght-normal.woff2',
+  variable: '--font-inter',
+  weight: '100 900',
+  display: 'swap',
+});
+const spaceGrotesk = localFont({
+  src: './fonts/space-grotesk-latin-wght-normal.woff2',
+  variable: '--font-space-grotesk',
+  weight: '300 700',
+  display: 'swap',
+});
+const jetbrainsMono = localFont({
+  src: './fonts/jetbrains-mono-latin-wght-normal.woff2',
+  variable: '--font-jetbrains-mono',
+  weight: '100 800',
+  display: 'swap',
+});
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
@@ -28,7 +49,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
         <LocalBusinessSchema />
         <Layout>{children}</Layout>
 
