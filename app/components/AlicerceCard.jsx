@@ -5,7 +5,7 @@ export default function AlicerceCard() {
         <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-        <span className="ml-3 font-mono text-[11px] text-white/30">imobiliaria.rixxer.com.br</span>
+        <span className="ml-3 font-mono text-[11px] text-white/50">imobiliaria.rixxer.com.br</span>
       </div>
 
       <div
@@ -24,7 +24,7 @@ export default function AlicerceCard() {
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#3AACB8]">Ao vivo</span>
           </div>
           <p className="mb-1 text-sm font-black uppercase tracking-tight text-white">Site</p>
-          <p className="text-xs text-white/40">Vitrine de imóveis</p>
+          <p className="text-xs text-white/55">Vitrine de imóveis</p>
         </div>
 
         <div className="absolute bottom-7 right-5 w-[64%] rounded-xl border border-[#E3B876]/30 bg-[#0D0D14]/85 p-4 shadow-xl backdrop-blur-sm sm:bottom-9 sm:right-8">
@@ -33,7 +33,7 @@ export default function AlicerceCard() {
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#3AACB8]">Ao vivo</span>
           </div>
           <p className="mb-1 text-sm font-black uppercase tracking-tight text-white">Painel Admin</p>
-          <p className="text-xs text-white/40">Imóveis, clientes e corretores</p>
+          <p className="text-xs text-white/55">Imóveis, clientes e corretores</p>
         </div>
       </div>
     </div>

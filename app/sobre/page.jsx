@@ -82,7 +82,7 @@ export default function SobrePage() {
               <p className="text-white/60 text-lg font-light leading-relaxed mb-6">
                 A Rixxer nasceu da convicção de que tecnologia de ponta não precisa ser privilégio de grandes empresas. Somos uma software house fundada por desenvolvedores que acreditam que o código certo transforma negócios.
               </p>
-              <p className="text-white/40 text-base font-light leading-relaxed">
+              <p className="text-white/55 text-base font-light leading-relaxed">
                 Desde o primeiro projeto, nosso foco nunca foi apenas entregar software. Foi entender o problema real, propor a solução certa e executar com excelência — independente do tamanho do cliente.
               </p>
             </Reveal>
@@ -106,7 +106,7 @@ export default function SobrePage() {
               <div className="text-4xl font-black text-[#3AACB8] mb-2">
                 <CountUp value={n.valor} />
               </div>
-              <div className="text-white/40 text-xs font-bold uppercase tracking-widest">{n.label}</div>
+              <div className="text-white/55 text-xs font-bold uppercase tracking-widest">{n.label}</div>
             </Reveal>
           ))}
         </div>
@@ -156,7 +156,7 @@ export default function SobrePage() {
                 <h3 className="font-black text-white uppercase tracking-tight text-base mb-1 group-hover:text-[#3AACB8] transition-colors duration-200">
                   {m.nome}
                 </h3>
-                <p className="text-white/40 text-xs font-medium uppercase tracking-widest">{m.cargo}</p>
+                <p className="text-white/55 text-xs font-medium uppercase tracking-widest">{m.cargo}</p>
               </Reveal>
             ))}
           </div>

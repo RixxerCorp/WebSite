@@ -153,7 +153,7 @@ export default function ServicosPage() {
                 {/* Lista de itens */}
                 <div className="p-10 border-t lg:border-t-0 lg:border-l border-gray-100"
                   style={{ background: s.cor + '08' }}>
-                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">Inclui</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-5">Inclui</p>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {s.itens.map((item, j) => (
                       <li key={j} className="flex items-center gap-2.5 text-sm font-medium text-gray-600">
@@ -192,7 +192,7 @@ export default function ServicosPage() {
                 <h3 className="font-black text-white uppercase tracking-tight text-base mb-2 group-hover:text-[#3AACB8] transition-colors duration-200">
                   {p.titulo}
                 </h3>
-                <p className="text-white/40 text-sm font-medium leading-relaxed">{p.desc}</p>
+                <p className="text-white/55 text-sm font-medium leading-relaxed">{p.desc}</p>
               </Reveal>
             ))}
           </div>

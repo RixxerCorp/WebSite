@@ -127,12 +127,12 @@ export default function Layout({ children }) {
                 <li><a href={`mailto:${SITE.email}`} className="hover:text-[#3AACB8] transition-colors duration-200">{SITE.email}</a></li>
                 <li><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-[#3AACB8] transition-colors duration-200">WhatsApp</a></li>
                 <li><a href={SITE.url} className="hover:text-[#3AACB8] transition-colors duration-200">{SITE.dominio}</a></li>
-                <li className="text-white/40 leading-relaxed pt-1">R. Santos Dumont, 43 - Centro<br />São Lourenço - MG, 37470-000</li>
+                <li className="text-white/55 leading-relaxed pt-1">R. Santos Dumont, 43 - Centro<br />São Lourenço - MG, 37470-000</li>
               </ul>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/30 text-xs">
+          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/50 text-xs">
             <span>© {new Date().getFullYear()} Rixxer. Todos os direitos reservados.</span>
             <span>Feito com 💜 pela Rixxer</span>
           </div>

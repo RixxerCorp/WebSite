@@ -22,7 +22,37 @@ function clean(v, max) {
   return typeof v === 'string' ? v.trim().slice(0, max) : '';
 }
 
+// Limite simples por IP (em memória): vale por instância do servidor.
+// Em hospedagem serverless/multi-instância é uma proteção best-effort.
+const JANELA_MS = 10 * 60 * 1000;
+const MAX_ENVIOS = 5;
+const envios = new Map();
+
+function excedeuLimite(ip) {
+  const agora = Date.now();
+  for (const [chave, marcas] of envios) {
+    const recentes = marcas.filter((t) => agora - t < JANELA_MS);
+    if (recentes.length) envios.set(chave, recentes);
+    else envios.delete(chave);
+  }
+  const marcas = envios.get(ip) ?? [];
+  if (marcas.length >= MAX_ENVIOS) return true;
+  envios.set(ip, [...marcas, agora]);
+  return false;
+}
+
 export async function POST(request) {
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+    request.headers.get('x-real-ip') ||
+    'desconhecido';
+  if (excedeuLimite(ip)) {
+    return Response.json(
+      { error: 'Muitas tentativas. Aguarde alguns minutos.' },
+      { status: 429, headers: { 'Retry-After': '600' } }
+    );
+  }
+
   let body;
   try {
     body = await request.json();

@@ -127,13 +127,13 @@ export default function ContatoClient() {
                     <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Nome *</label>
                     <input name="nome" value={form.nome} onChange={handleChange} required
                       placeholder="Seu nome completo"
-                      className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-300" />
+                      className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-400" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">E-mail *</label>
                     <input name="email" type="email" value={form.email} onChange={handleChange} required
                       placeholder="seu@email.com"
-                      className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-300" />
+                      className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-400" />
                   </div>
                 </div>
 
@@ -141,7 +141,7 @@ export default function ContatoClient() {
                   <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Empresa / Projeto</label>
                   <input name="empresa" value={form.empresa} onChange={handleChange}
                     placeholder="Nome da empresa ou projeto"
-                    className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-300" />
+                    className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-400" />
                 </div>
 
                 <div>
@@ -157,7 +157,7 @@ export default function ContatoClient() {
                   <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Conte seu projeto *</label>
                   <textarea name="mensagem" value={form.mensagem} onChange={handleChange} required rows={5}
                     placeholder="Descreva o que você precisa, seu prazo e qualquer detalhe relevante..."
-                    className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-300 resize-none" />
+                    className="w-full px-4 py-3 bg-[#F5F5F7] border border-gray-200 rounded-xl text-[#0D0D14] text-sm font-medium focus:outline-none focus:border-[#6B2D8B] transition-colors duration-200 placeholder:text-gray-400 resize-none" />
                 </div>
 
                 {/* Honeypot anti-spam: invisível para humanos */}
@@ -195,7 +195,7 @@ export default function ContatoClient() {
                       <c.Icon className="w-4 h-4 text-[#3AACB8]" />
                     </div>
                     <div>
-                      <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">{c.titulo}</p>
+                      <p className="text-white/55 text-[10px] font-bold uppercase tracking-widest">{c.titulo}</p>
                       <p className="text-white text-sm font-bold group-hover:text-[#3AACB8] transition-colors duration-200">{c.valor}</p>
                     </div>
                   </a>
@@ -217,11 +217,11 @@ export default function ContatoClient() {
                 ].map((h, i) => (
                   <div key={i} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
                     <span className="text-gray-500 font-medium">{h.dia}</span>
-                    <span className={`font-black text-xs uppercase tracking-wider ${h.hora === 'Fechado' ? 'text-gray-300' : 'text-[#6B2D8B]'}`}>{h.hora}</span>
+                    <span className={`font-black text-xs uppercase tracking-wider ${h.hora === 'Fechado' ? 'text-gray-500' : 'text-[#6B2D8B]'}`}>{h.hora}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-gray-400 text-xs font-medium mt-4 leading-relaxed">
+              <p className="text-gray-500 text-xs font-medium mt-4 leading-relaxed">
                 Urgências? Nos acione pelo WhatsApp — respondemos sempre que possível fora do horário comercial.
               </p>
             </Reveal>

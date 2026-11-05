@@ -130,7 +130,7 @@ export default function ProjetosClient() {
                 {cat}
               </button>
             ))}
-            <span className="ml-auto text-gray-400 text-sm font-medium self-center">
+            <span className="ml-auto text-gray-500 text-sm font-medium self-center">
               {filtrados.length} {filtrados.length === 1 ? 'projeto' : 'projetos'}
             </span>
           </div>
@@ -149,7 +149,7 @@ export default function ProjetosClient() {
                       style={{ background: p.cor + '15', color: p.cor }}>
                       {p.categoria}
                     </span>
-                    <span className="text-gray-300 text-xs font-bold">{p.ano}</span>
+                    <span className="text-gray-500 text-xs font-bold">{p.ano}</span>
                   </div>
 
                   <h3 className="font-black text-[#0D0D14] uppercase tracking-tight text-xl mb-1 group-hover:text-[#6B2D8B] transition-colors duration-200">
@@ -160,7 +160,7 @@ export default function ProjetosClient() {
 
                   <div className="mt-5 pt-5 border-t border-gray-100 flex flex-wrap gap-2">
                     {p.techs.map((t, j) => (
-                      <span key={j} className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-gray-50 text-gray-400 rounded-md border border-gray-100">
+                      <span key={j} className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 bg-gray-50 text-gray-500 rounded-md border border-gray-100">
                         {t}
                       </span>
                     ))}

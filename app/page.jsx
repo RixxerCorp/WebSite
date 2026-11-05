@@ -208,7 +208,7 @@ export default function HomePage() {
               <div className="text-5xl font-black text-[#3AACB8] mb-2">
                 <CountUp value={n.valor} />
               </div>
-              <div className="text-white/40 text-xs font-bold uppercase tracking-widest">{n.label}</div>
+              <div className="text-white/55 text-xs font-bold uppercase tracking-widest">{n.label}</div>
             </Reveal>
           ))}
         </div>
@@ -255,7 +255,7 @@ export default function HomePage() {
               >
                 Conhecer o Alicerce ↗
               </MagneticButton>
-              <p className="text-white/25 text-xs font-medium mt-4">Um produto Rixxer, gerido de ponta a ponta pela nossa equipe.</p>
+              <p className="text-white/50 text-xs font-medium mt-4">Um produto Rixxer, gerido de ponta a ponta pela nossa equipe.</p>
             </Reveal>
 
             <Reveal delay={150}>
@@ -350,7 +350,7 @@ export default function HomePage() {
                   <h3 className="font-black text-white uppercase tracking-tight text-lg mb-2 group-hover:text-[#3AACB8] transition-colors duration-200">
                     {p.titulo}
                   </h3>
-                  <p className="text-white/40 text-sm font-medium leading-relaxed">{p.desc}</p>
+                  <p className="text-white/55 text-sm font-medium leading-relaxed">{p.desc}</p>
                   <div className="mt-5 w-8 h-0.5 rounded-full transition-all duration-300 group-hover:w-16" style={{ background: p.cor }} />
                 </div>
               </Reveal>
@@ -382,7 +382,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <p className="font-black text-[#0D0D14] text-sm uppercase tracking-wide">{d.nome}</p>
-                      <p className="text-gray-400 text-xs font-medium">{d.cargo}</p>
+                      <p className="text-gray-500 text-xs font-medium">{d.cargo}</p>
                     </div>
                   </div>
                 </div>

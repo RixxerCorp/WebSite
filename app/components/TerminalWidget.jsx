@@ -42,18 +42,18 @@ export default function TerminalWidget() {
         <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-        <span className="ml-3 font-mono text-[11px] text-white/30">rixxer — zsh</span>
+        <span className="ml-3 font-mono text-[11px] text-white/50">rixxer — zsh</span>
       </div>
       <div className="min-h-[168px] space-y-2.5 p-5 font-mono text-sm">
         {linhas.slice(0, visibleLines).map((l, i) => (
           <div key={i} className={l.color}>
-            <span className="mr-2 text-white/30">{l.prefix}</span>
+            <span className="mr-2 text-white/50">{l.prefix}</span>
             {l.text}
           </div>
         ))}
         {typing && (
           <div className={typing.color}>
-            <span className="mr-2 text-white/30">{typing.prefix}</span>
+            <span className="mr-2 text-white/50">{typing.prefix}</span>
             {typing.text.slice(0, charCount)}
             <span className="ml-0.5 inline-block h-4 w-2 align-middle bg-white/60 animate-pulse" />
           </div>
