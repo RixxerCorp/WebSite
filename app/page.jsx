@@ -4,7 +4,7 @@ import CountUp from './components/CountUp';
 import Marquee from './components/Marquee';
 import MagneticButton from './components/MagneticButton';
 import { whatsappLink } from '@/lib/site';
-import { getGoogleRating } from '@/lib/google-reviews';
+import { getGoogleData } from '@/lib/google-reviews';
 import TerminalWidget from './components/TerminalWidget';
 import AlicerceCard from './components/AlicerceCard';
 import GoogleRating from './components/GoogleRating';
@@ -124,7 +124,11 @@ function GridLines() {
 }
 
 export default async function HomePage() {
-  const rating = await getGoogleRating();
+  const { rating, reviews } = await getGoogleData();
+  const cartoes =
+    reviews.length >= 3
+      ? reviews.map((r) => ({ nome: r.autor, cargo: r.data ? `Avaliação no Google · ${r.data}` : 'Avaliação no Google', texto: r.texto, inicial: r.autor[0].toUpperCase() }))
+      : depoimentos;
   const numeros = [...numerosBase, { valor: rating.notaTexto, label: 'Nota no Google' }];
   return (
     <div className="bg-[#0D0D14] text-white">
@@ -373,7 +377,7 @@ export default async function HomePage() {
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {depoimentos.map((d, i) => (
+            {cartoes.map((d, i) => (
               <Reveal key={i} delay={i * 70}>
                 <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                   <IconQuote className="w-7 h-7 text-[#3AACB8]/30 mb-4" />

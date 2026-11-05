@@ -58,9 +58,14 @@ O menu mobile expõe `aria-expanded` e fecha com a tecla Esc.
 
 ## Avaliações do Google (automático)
 
-Nota e total de avaliações são buscados no servidor e cacheados por 24h
-(`lib/google-reviews.js`). Fontes, em ordem de prioridade:
+Nota, total e as avaliações recentes (com texto, 4–5 estrelas) são buscados no servidor
+e cacheados por 24h (`lib/google-reviews.js`).
 
-1. **Google Places API (New)** — `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID` (exige faturamento no Google Cloud).
-2. **SerpApi** (plano gratuito) — `SERPAPI_API_KEY`; opcional `SERPAPI_QUERY` (padrão: "Rixxer São Lourenço MG").
-3. **Valor de reserva** em `lib/site.js` (`SITE.avaliacao`), usado se nada estiver configurado ou se a consulta falhar.
+- **SerpApi** (plano gratuito): `SERPAPI_API_KEY`. Usa o `data_id` do perfil em `lib/site.js`
+  (`googleDataId`, ou `SERPAPI_DATA_ID` para sobrescrever).
+- **Google Places API (New)** (opcional, exige faturamento): `GOOGLE_PLACES_API_KEY` + `GOOGLE_PLACE_ID`
+  — só para a nota/total.
+- **Reserva:** sem chaves ou se a consulta falhar, a nota vem de `lib/site.js` (`SITE.avaliacao`)
+  e a seção de depoimentos da home usa a lista fixa em `app/page.jsx`.
+
+A seção de depoimentos da home usa as avaliações do Google quando há pelo menos 3 com texto.
