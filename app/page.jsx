@@ -3,7 +3,8 @@ import Reveal from './components/Reveal';
 import CountUp from './components/CountUp';
 import Marquee from './components/Marquee';
 import MagneticButton from './components/MagneticButton';
-import { SITE, whatsappLink } from '@/lib/site';
+import { whatsappLink } from '@/lib/site';
+import { getGoogleRating } from '@/lib/google-reviews';
 import TerminalWidget from './components/TerminalWidget';
 import AlicerceCard from './components/AlicerceCard';
 import GoogleRating from './components/GoogleRating';
@@ -60,11 +61,10 @@ const servicos = [
   },
 ];
 
-const numeros = [
+const numerosBase = [
   { valor: '400+', label: 'Projetos Entregues' },
   { valor: '380+', label: 'Clientes Atendidos' },
   { valor: '10+', label: 'Anos de Mercado' },
-  { valor: SITE.avaliacao.notaTexto, label: 'Nota no Google' },
 ];
 
 const clientes = [
@@ -123,7 +123,9 @@ function GridLines() {
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  const rating = await getGoogleRating();
+  const numeros = [...numerosBase, { valor: rating.notaTexto, label: 'Nota no Google' }];
   return (
     <div className="bg-[#0D0D14] text-white">
 

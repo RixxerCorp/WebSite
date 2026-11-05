@@ -1,6 +1,6 @@
 import { SITE } from '@/lib/site';
 
-export default function LocalBusinessSchema() {
+export default function LocalBusinessSchema({ rating }) {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
@@ -24,8 +24,8 @@ export default function LocalBusinessSchema() {
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: SITE.avaliacao.nota.toFixed(1),
-      reviewCount: String(SITE.avaliacao.quantidade),
+      ratingValue: rating.nota.toFixed(1),
+      reviewCount: String(rating.quantidade),
       bestRating: '5',
     },
     sameAs: [SITE.redes.instagram, SITE.redes.linkedin],

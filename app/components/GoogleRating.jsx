@@ -1,6 +1,10 @@
+'use client';
+
 import { SITE } from '@/lib/site';
+import { useRating } from './RatingProvider';
 
 export default function GoogleRating({ className = '', starClassName = 'text-[#3AACB8]' }) {
+  const { notaTexto, quantidade } = useRating();
   return (
     <a
       href={SITE.mapsUrl}
@@ -15,9 +19,9 @@ export default function GoogleRating({ className = '', starClassName = 'text-[#3
           </svg>
         ))}
       </span>
-      <span className="font-bold">{SITE.avaliacao.notaTexto}</span>
+      <span className="font-bold">{notaTexto}</span>
       <span className="opacity-60 group-hover:opacity-100 transition-opacity duration-200">
-        · {SITE.avaliacao.quantidade} avaliações no Google
+        · {quantidade} {quantidade === 1 ? 'avaliação' : 'avaliações'} no Google
       </span>
     </a>
   );

@@ -1,5 +1,7 @@
 import Script from 'next/script';
 import { SITE } from '@/lib/site';
+import { getGoogleRating } from '@/lib/google-reviews';
+import { RatingProvider } from './components/RatingProvider';
 import Layout from './components/layout';
 import LocalBusinessSchema from './components/LocalBusinessSchema';
 import localFont from 'next/font/local';
@@ -46,12 +48,15 @@ export const metadata = {
   twitter: { card: 'summary_large_image', images: ['/og.jpg'] },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const rating = await getGoogleRating();
   return (
     <html lang="pt-BR">
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
-        <LocalBusinessSchema />
-        <Layout>{children}</Layout>
+        <LocalBusinessSchema rating={rating} />
+        <RatingProvider rating={rating}>
+          <Layout>{children}</Layout>
+        </RatingProvider>
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-WMPL2T1D01"

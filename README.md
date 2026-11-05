@@ -55,3 +55,16 @@ public/                 # logos e og.jpg (imagem de compartilhamento, 1200×630)
 
 Animações e efeitos de movimento respeitam `prefers-reduced-motion`.
 O menu mobile expõe `aria-expanded` e fecha com a tecla Esc.
+
+## Avaliações do Google (automático)
+
+A nota e o total de avaliações vêm da Places API (New) e são cacheados por 24h
+(`lib/google-reviews.js`). Variáveis de ambiente:
+
+```
+GOOGLE_PLACES_API_KEY=...   # chave restrita à Places API (New)
+GOOGLE_PLACE_ID=...         # Place ID da Rixxer (Place ID Finder)
+```
+
+Sem as variáveis, ou se a API falhar, o site usa o valor de reserva em `lib/site.js`
+(`SITE.avaliacao`).
