@@ -1,4 +1,6 @@
-const BASE = 'https://www.rixxer.com.br';
+import { SITE } from '@/lib/site';
+
+const BASE = SITE.url;
 
 export default function sitemap() {
   const rotas = ['', '/servicos', '/projetos', '/sobre', '/contato'];

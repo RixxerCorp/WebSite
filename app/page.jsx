@@ -3,6 +3,7 @@ import Reveal from './components/Reveal';
 import CountUp from './components/CountUp';
 import Marquee from './components/Marquee';
 import MagneticButton from './components/MagneticButton';
+import { whatsappLink } from '@/lib/site';
 import TerminalWidget from './components/TerminalWidget';
 import AlicerceCard from './components/AlicerceCard';
 import GoogleRating from './components/GoogleRating';
@@ -411,7 +412,7 @@ export default function HomePage() {
               Solicitar Proposta
             </MagneticButton>
             <MagneticButton
-              href="https://wa.me/5511926404724"
+              href={whatsappLink()}
               external
               className="border border-[#3AACB8]/40 hover:border-[#3AACB8] text-[#3AACB8] font-bold px-10 py-5 rounded-lg uppercase tracking-widest text-sm hover:bg-[#3AACB8]/10"
             >

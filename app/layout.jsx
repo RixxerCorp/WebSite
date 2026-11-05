@@ -1,10 +1,11 @@
 import Script from 'next/script';
+import { SITE } from '@/lib/site';
 import Layout from './components/layout';
 import LocalBusinessSchema from './components/LocalBusinessSchema';
 import './globals.css';
 
 export const metadata = {
-  metadataBase: new URL('https://www.rixxer.com.br'),
+  metadataBase: new URL(SITE.url),
   title: {
     default: 'Rixxer | Software House em São Lourenço - MG',
     template: '%s | Rixxer',

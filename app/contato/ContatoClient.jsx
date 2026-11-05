@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Reveal from '../components/Reveal';
 import MagneticButton from '../components/MagneticButton';
 import GoogleRating from '../components/GoogleRating';
+import { SITE, whatsappLink } from '@/lib/site';
 import { IconMail, IconChat, IconGlobe, IconPin, IconBolt, IconRocket } from '../components/icons';
 
 function XPattern() {
@@ -33,11 +34,10 @@ const servicos = [
 ];
 
 const canais = [
-  { Icon: IconMail, titulo: 'E-mail', valor: 'contato@rixxer.com.br', href: 'mailto:contato@rixxer.com.br' },
-  { Icon: IconChat, titulo: 'WhatsApp', valor: '(11) 92640-4724', href: 'https://wa.me/5511926404724' },
-  { Icon: IconChat, titulo: 'WhatsApp', valor: '(35) 98426-5018', href: 'https://wa.me/5535984265018' },
-  { Icon: IconGlobe, titulo: 'Site', valor: 'www.rixxer.com.br', href: 'https://www.rixxer.com.br' },
-  { Icon: IconPin, titulo: 'Localização', valor: 'R. Santos Dumont, 43 - Centro, São Lourenço - MG', href: 'https://www.google.com/maps/place/Rixxer/@-14.4095261,-51.31668,4z/data=!3m1!4b1!4m6!3m5!1s0x94cb4ba5854cd717:0x5c347bc7a4a4dfc7!8m2!3d-14.4095262!4d-51.31668!16s%2Fg%2F11rw904lh4?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D' },
+  { Icon: IconMail, titulo: 'E-mail', valor: SITE.email, href: `mailto:${SITE.email}` },
+  ...SITE.whatsapps.map((w) => ({ Icon: IconChat, titulo: 'WhatsApp', valor: w.exibicao, href: whatsappLink(w.numero) })),
+  { Icon: IconGlobe, titulo: 'Site', valor: SITE.dominio, href: SITE.url },
+  { Icon: IconPin, titulo: 'Localização', valor: `${SITE.endereco.rua}, ${SITE.endereco.cidade} - ${SITE.endereco.uf}`, href: SITE.mapsUrl },
 ];
 
 export default function ContatoClient() {

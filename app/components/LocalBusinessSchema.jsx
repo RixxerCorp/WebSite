@@ -1,35 +1,34 @@
+import { SITE } from '@/lib/site';
+
 export default function LocalBusinessSchema() {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'Rixxer',
-    image: 'https://www.rixxer.com.br/rixxer.png',
-    url: 'https://www.rixxer.com.br',
-    telephone: '+5511926404724',
+    name: SITE.nome,
+    image: `${SITE.url}/rixxer.png`,
+    url: SITE.url,
+    telephone: `+${SITE.whatsapps[0].numero}`,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'R. Santos Dumont, 43 - Centro',
-      addressLocality: 'São Lourenço',
-      addressRegion: 'MG',
-      postalCode: '37470-000',
+      streetAddress: SITE.endereco.rua,
+      addressLocality: SITE.endereco.cidade,
+      addressRegion: SITE.endereco.uf,
+      postalCode: SITE.endereco.cep,
       addressCountry: 'BR',
     },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '17:00',
+      dayOfWeek: SITE.horario.dias,
+      opens: SITE.horario.abre,
+      closes: SITE.horario.fecha,
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '17',
+      ratingValue: SITE.avaliacao.nota.toFixed(1),
+      reviewCount: String(SITE.avaliacao.quantidade),
       bestRating: '5',
     },
-    sameAs: [
-      'https://instagram.com/rixxerbr',
-      'https://linkedin.com/company/rixxerbr',
-    ],
+    sameAs: [SITE.redes.instagram, SITE.redes.linkedin],
   };
 
   return (

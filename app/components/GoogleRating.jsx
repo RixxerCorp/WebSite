@@ -1,10 +1,9 @@
-const GOOGLE_MAPS_URL =
-  'https://www.google.com/maps/place/Rixxer/@-14.4095261,-51.31668,4z/data=!3m1!4b1!4m6!3m5!1s0x94cb4ba5854cd717:0x5c347bc7a4a4dfc7!8m2!3d-14.4095262!4d-51.31668!16s%2Fg%2F11rw904lh4?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D';
+import { SITE } from '@/lib/site';
 
 export default function GoogleRating({ className = '', starClassName = 'text-[#3AACB8]' }) {
   return (
     <a
-      href={GOOGLE_MAPS_URL}
+      href={SITE.mapsUrl}
       target="_blank"
       rel="noopener noreferrer"
       className={`inline-flex items-center gap-2 group ${className}`}
@@ -16,9 +15,9 @@ export default function GoogleRating({ className = '', starClassName = 'text-[#3
           </svg>
         ))}
       </span>
-      <span className="font-bold">5,0</span>
+      <span className="font-bold">{SITE.avaliacao.notaTexto}</span>
       <span className="opacity-60 group-hover:opacity-100 transition-opacity duration-200">
-        · 17 avaliações no Google
+        · {SITE.avaliacao.quantidade} avaliações no Google
       </span>
     </a>
   );
