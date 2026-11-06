@@ -42,7 +42,7 @@ export default function Galeria({ imagens }) {
             type="button"
             onClick={() => abrir(i)}
             aria-label={`Ampliar imagem: ${m.alt}`}
-            className={`group relative ${m.retrato ? 'aspect-[3/4]' : 'aspect-[4/3]'} rounded-xl overflow-hidden border border-gray-200 bg-white cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B2D8B]`}
+            className={`group relative ${m.aspecto === '4/5' ? 'aspect-[4/5]' : m.retrato ? 'aspect-[3/4]' : 'aspect-[4/3]'} rounded-xl overflow-hidden border border-gray-200 bg-white cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B2D8B]`}
           >
             <Image
               src={m.src}
