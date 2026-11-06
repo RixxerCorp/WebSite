@@ -127,7 +127,7 @@ export default function Layout({ children }) {
                 <li><a href={`mailto:${SITE.email}`} className="hover:text-[#3AACB8] transition-colors duration-200">{SITE.email}</a></li>
                 <li><a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-[#3AACB8] transition-colors duration-200">WhatsApp</a></li>
                 <li><a href={SITE.url} className="hover:text-[#3AACB8] transition-colors duration-200">{SITE.dominio}</a></li>
-                <li className="text-white/55 leading-relaxed pt-1">R. Santos Dumont, 43 - Centro<br />São Lourenço - MG, 37470-000</li>
+                <li className="text-white/55 leading-relaxed pt-1">{SITE.endereco.rua}<br />{SITE.endereco.cidade} - {SITE.endereco.uf}, {SITE.endereco.cep}</li>
               </ul>
             </div>
           </div>
