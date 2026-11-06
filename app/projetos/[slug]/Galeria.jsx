@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 // Galeria de imagens do projeto: miniaturas que ampliam em uma janela (dialog nativo).
 // Esc fecha, setas do teclado navegam, clicar fora fecha.
-const ASPECTOS = { '4/5': 'aspect-[4/5]', '1/1': 'aspect-square', '9/16': 'aspect-[9/16]', '2/3': 'aspect-[2/3]', '16/10': 'aspect-[16/10]' };
+const ASPECTOS = { '4/5': 'aspect-[4/5]', '1/1': 'aspect-square', '9/16': 'aspect-[9/16]', '2/3': 'aspect-[2/3]', '16/10': 'aspect-[16/10]', '11/3': 'aspect-[11/3]' };
 
 export default function Galeria({ imagens }) {
   const dialogRef = useRef(null);
