@@ -107,7 +107,11 @@ export default function ProjetosClient({ projetos }) {
 
                   <span className="mt-5 inline-flex items-center gap-2 text-[#6B2D8B] text-xs font-bold uppercase tracking-widest">
                     Ver projeto <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-                    {p.noAr && <span className="ml-auto text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">No ar</span>}
+                    {p.status ? (
+                      <span className="ml-auto text-[10px] px-2 py-1 rounded-full bg-amber-50 text-amber-700">{p.status}</span>
+                    ) : (
+                      p.noAr && <span className="ml-auto text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">No ar</span>
+                    )}
                   </span>
                 </div>
               </Reveal>

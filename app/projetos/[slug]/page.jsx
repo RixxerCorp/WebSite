@@ -68,6 +68,11 @@ export default async function ProjetoPage({ params }) {
               {p.categoria}
             </span>
             <span className="text-white/60 text-xs font-bold">{p.ano}</span>
+            {p.status && (
+              <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full bg-amber-400/20 text-amber-300">
+                {p.status}
+              </span>
+            )}
           </div>
 
           <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-4">{p.titulo}</h1>
