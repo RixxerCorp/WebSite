@@ -42,6 +42,7 @@ export default async function ProjetoPage({ params }) {
   const p = getProjeto(slug);
   if (!p) notFound();
 
+  const relacionados = (p.relacionados ?? []).map((s) => getProjeto(s)).filter(Boolean);
   const i = projetos.findIndex((x) => x.slug === p.slug);
   const anterior = projetos[(i - 1 + projetos.length) % projetos.length];
   const proximo = projetos[(i + 1) % projetos.length];
@@ -156,6 +157,28 @@ export default async function ProjetoPage({ params }) {
                     <li key={e} className="flex items-start gap-3 text-gray-600 font-medium leading-relaxed">
                       <IconArrow className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#1B7F8B]" />
                       {e}
+                    </li>
+                  ))}
+                </ul>
+              </Secao>
+            )}
+
+            {relacionados.length > 0 && (
+              <Secao titulo="Projetos relacionados">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {relacionados.map((r) => (
+                    <li key={r.slug}>
+                      <Link
+                        href={`/projetos/${r.slug}`}
+                        className="group block h-full bg-white rounded-xl border border-gray-100 p-5 hover:shadow-lg transition-shadow"
+                      >
+                        <span className="text-gray-500 text-xs font-bold uppercase tracking-widest">
+                          {r.categoria} · {r.cliente}
+                        </span>
+                        <p className="font-black text-[#0D0D14] uppercase tracking-tight mt-1 group-hover:text-[#6B2D8B] transition-colors">
+                          {r.titulo} <span aria-hidden="true">→</span>
+                        </p>
+                      </Link>
                     </li>
                   ))}
                 </ul>
