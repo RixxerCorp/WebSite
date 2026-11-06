@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import Reveal from '../components/Reveal';
 import Link from 'next/link';
+import Image from 'next/image';
 import MagneticButton from '../components/MagneticButton';
 import { prefersReducedMotion } from '@/lib/motion';
 
@@ -98,7 +99,20 @@ export default function ProjetosClient({ projetos }) {
               <Reveal key={`${categoriaAtiva}-${paginaAtual}-${p.slug}`} delay={i * 60}
                 className={`bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full relative`}>
 
-                <div className="h-3 w-full" style={{ background: `linear-gradient(to right, ${p.cor}, #3AACB8)` }} />
+                {p.capa ? (
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
+                    <Image
+                      src={p.capa}
+                      alt={`Capa do projeto ${p.titulo}`}
+                      fill
+                      sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute bottom-0 left-0 h-1 w-full" style={{ background: `linear-gradient(to right, ${p.cor}, #3AACB8)` }} />
+                  </div>
+                ) : (
+                  <div className="h-3 w-full" style={{ background: `linear-gradient(to right, ${p.cor}, #3AACB8)` }} />
+                )}
 
                 <div className="p-7 flex flex-col flex-grow">
                   <div className="flex items-center justify-between mb-4">
@@ -115,7 +129,7 @@ export default function ProjetosClient({ projetos }) {
                     </Link>
                   </h3>
                   <p className="text-[#1B7F8B] text-xs font-bold uppercase tracking-widest mb-3">{p.cliente}</p>
-                  <p className="text-gray-500 text-sm font-medium leading-relaxed flex-grow">{p.resumo}</p>
+                  <p className="text-gray-500 text-sm font-medium leading-relaxed flex-grow line-clamp-3">{p.resumo}</p>
 
                   <div className="mt-5 pt-5 border-t border-gray-100 flex flex-wrap gap-2">
                     {p.techs.map((t, j) => (
@@ -126,11 +140,15 @@ export default function ProjetosClient({ projetos }) {
                   </div>
 
                   <span className="mt-5 inline-flex items-center gap-2 text-[#6B2D8B] text-xs font-bold uppercase tracking-widest">
-                    Ver projeto <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                    <span className="whitespace-nowrap">Ver projeto</span> <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform duration-200">→</span>
                     {p.status ? (
-                      <span className="ml-auto text-[10px] px-2 py-1 rounded-full bg-amber-50 text-amber-700">{p.status}</span>
+                      <span className="ml-auto whitespace-nowrap text-[10px] px-2 py-1 rounded-full bg-amber-50 text-amber-700">{p.status}</span>
                     ) : (
-                      p.noAr && <span className="ml-auto text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">No ar</span>
+                      p.tipoLink === 'site' ? (
+                        <span className="ml-auto whitespace-nowrap text-[10px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">No ar</span>
+                      ) : p.tipoLink === 'instagram' ? (
+                        <span className="ml-auto whitespace-nowrap text-[10px] px-2 py-1 rounded-full bg-fuchsia-50 text-fuchsia-700">Instagram</span>
+                      ) : null
                     )}
                   </span>
                 </div>

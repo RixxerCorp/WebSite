@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Reveal from './components/Reveal';
 import CountUp from './components/CountUp';
 import Marquee from './components/Marquee';
@@ -348,8 +349,20 @@ export default async function HomePage() {
               <Reveal key={p.slug} delay={i * 70}>
                 <Link
                   href={`/projetos/${p.slug}`}
-                  className="block rounded-2xl border border-white/5 bg-white/[0.02] p-7 hover:border-white/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl h-full"
+                  className="block overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] hover:border-white/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl h-full"
                 >
+                  {p.capa && (
+                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-white/5">
+                      <Image
+                        src={p.capa}
+                        alt={`Capa do projeto ${p.titulo}`}
+                        fill
+                        sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+                  <div className="p-7">
                   <div className="flex items-center justify-between mb-5">
                     <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full"
                       style={{ background: p.cor + '22', color: p.cor }}>
@@ -361,8 +374,9 @@ export default async function HomePage() {
                     {p.titulo}
                   </h3>
                   <p className="text-[#3AACB8] text-xs font-bold uppercase tracking-widest mb-3">{p.cliente}</p>
-                  <p className="text-white/55 text-sm font-medium leading-relaxed">{p.resumo}</p>
+                  <p className="text-white/55 text-sm font-medium leading-relaxed line-clamp-3">{p.resumo}</p>
                   <div className="mt-5 w-8 h-0.5 rounded-full transition-all duration-300 group-hover:w-16" style={{ background: p.cor }} />
+                  </div>
                 </Link>
               </Reveal>
             ))}
