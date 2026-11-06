@@ -81,7 +81,7 @@ export default async function ProjetoPage({ params }) {
                 external
                 className="bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold px-8 py-4 rounded-lg uppercase tracking-widest text-xs shadow-xl shadow-purple-900/40"
               >
-                Ver projeto no ar ↗
+                {p.linkRotulo ?? 'Ver projeto no ar'} ↗
               </MagneticButton>
             )}
             <div className="flex flex-wrap gap-2">
@@ -227,7 +227,7 @@ export default async function ProjetoPage({ params }) {
                   rel="noopener noreferrer"
                   className="mt-6 block text-center bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold py-3 rounded-lg uppercase tracking-widest text-xs transition-colors"
                 >
-                  Visitar projeto ↗
+                  {p.linkRotulo ?? 'Visitar projeto'} ↗
                 </a>
               )}
             </Reveal>
