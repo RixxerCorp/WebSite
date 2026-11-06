@@ -89,6 +89,16 @@ export default async function ProjetoPage({ params }) {
                 {p.linkRotulo ?? 'Ver projeto no ar'} ↗
               </MagneticButton>
             )}
+            {p.linkExtra && (
+              <a
+                href={p.linkExtra.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-white/20 hover:border-[#3AACB8] hover:text-[#3AACB8] text-white font-bold px-8 py-4 rounded-lg uppercase tracking-widest text-xs transition-colors"
+              >
+                {p.linkExtra.rotulo} ↗
+              </a>
+            )}
             <div className="flex flex-wrap gap-2">
               {p.techs.map((t) => (
                 <span
@@ -233,6 +243,16 @@ export default async function ProjetoPage({ params }) {
                   className="mt-6 block text-center bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold py-3 rounded-lg uppercase tracking-widest text-xs transition-colors"
                 >
                   {p.linkRotulo ?? 'Visitar projeto'} ↗
+                </a>
+              )}
+              {p.linkExtra && (
+                <a
+                  href={p.linkExtra.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 block text-center border border-white/20 hover:border-[#3AACB8] hover:text-[#3AACB8] text-white font-bold py-3 rounded-lg uppercase tracking-widest text-xs transition-colors"
+                >
+                  {p.linkExtra.rotulo} ↗
                 </a>
               )}
             </Reveal>
