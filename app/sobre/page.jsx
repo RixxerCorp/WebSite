@@ -86,7 +86,7 @@ export default function SobrePage() {
                 Desde o primeiro projeto, nosso foco nunca foi apenas entregar software. Foi entender o problema real, propor a solução certa e executar com excelência — independente do tamanho do cliente.
               </p>
               <p className="text-white/55 text-base font-light leading-relaxed mt-6">
-                Atendemos clientes em todo o Brasil e também no exterior, como Estados Unidos e Espanha. O atendimento é feito online, em português e inglês, com a mesma proximidade de quem está na sala ao lado.
+                Atendemos clientes em todo o Brasil e também no exterior, como Estados Unidos e Espanha. O atendimento é feito online, em português e inglês, com a mesma proximidade de quem está na sala ao lado. E seguimos em constante aprendizado de novos idiomas, para atender cada vez mais pessoas.
               </p>
             </Reveal>
           </div>
