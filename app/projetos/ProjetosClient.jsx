@@ -68,7 +68,7 @@ export default function ProjetosClient({ projetos }) {
           </Reveal>
           <Reveal delay={160}>
             <p className="text-white/50 text-xl font-light max-w-xl leading-relaxed">
-              São mais de 400 projetos entregues para clientes de diferentes segmentos. Aqui estão alguns dos nossos favoritos.
+              Sites, sistemas, design, impressos e gestão de redes sociais para clientes de diferentes segmentos. Veja alguns dos nossos trabalhos.
             </p>
           </Reveal>
         </div>

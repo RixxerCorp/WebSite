@@ -5,6 +5,7 @@ import Marquee from './components/Marquee';
 import MagneticButton from './components/MagneticButton';
 import { whatsappLink } from '@/lib/site';
 import { getGoogleData } from '@/lib/google-reviews';
+import { projetos as projetosCadastrados } from '@/lib/projetos';
 import TerminalWidget from './components/TerminalWidget';
 import AlicerceCard from './components/AlicerceCard';
 import GoogleRating from './components/GoogleRating';
@@ -62,9 +63,9 @@ const servicos = [
 ];
 
 const numerosBase = [
-  { valor: '400+', label: 'Projetos Entregues' },
-  { valor: '380+', label: 'Clientes Atendidos' },
   { valor: '10+', label: 'Anos de Mercado' },
+  { valor: 'Completa', label: 'Site, sistema, design e redes' },
+  { valor: 'Próxima', label: 'Atendimento direto com você' },
 ];
 
 const clientes = [
@@ -75,14 +76,16 @@ const clientes = [
   'Lavanderia Mundial',
 ];
 
-const projetos = [
-  { titulo: 'Portal Imobiliário', categoria: 'Web/Mobile', cor: '#6B2D8B', desc: 'Site completo com área restrita para cadastro de imóveis para a Alexandria Negócios Imobiliários.' },
-  { titulo: 'Site para Hamburgueria', categoria: 'Web/Mobile', cor: '#3AACB8', desc: 'Site completo com cardápio e solução de pagamentos para a The Seventies Artesanal Burgers.' },
-  { titulo: 'Revista Impressa', categoria: 'Design Gráfico', cor: '#1A1F5E', desc: 'Montagem e impressão da Revista Viva São Lourenço, impresso conceituado na Cidade.' },
-  { titulo: 'Banner para Impressão', categoria: 'Design', cor: '#6B2D8B', desc: 'Criação de material para o Restaurante do Calçadão, com design e impressão personalizados.' },
-  { titulo: 'Gestão de Redes Sociais', categoria: 'Web', cor: '#3AACB8', desc: 'Estratégia e produção de conteúdo mensal para a Lavanderia Mundial, de Goiânia.' },
-  { titulo: 'Conteúdo para Hamburgueria', categoria: 'Design Gráfico', cor: '#1A1F5E', desc: 'Produção de conteúdo e estratégia para a hamburgueria The Seventies' },
+// Seleção da Home: um projeto de cada tipo, vindos do cadastro em lib/projetos.js.
+const SLUGS_DESTAQUE = [
+  'portal-imobiliario-alexandria',
+  'site-hamburgueria-the-seventies',
+  'revista-viva-sao-lourenco',
+  'catalogo-atacadao-ferrossul',
+  'logotipo-grupo-beg',
+  'redes-sociais-lavanderia-mundial',
 ];
+const projetos = SLUGS_DESTAQUE.map((s) => projetosCadastrados.find((p) => p.slug === s)).filter(Boolean);
 
 const depoimentos = [
   { nome: 'Isa Marassi', cargo: 'Psicanalista', texto: 'Pensa numa empresa séria com pessoal altamente capacitado!? São excelentes na produção e estão sempre prontos a nos atender. Estou super satisfeita com os serviços e atendimento. Super recomendo!!!', inicial: 'I' },
@@ -342,9 +345,10 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {projetos.map((p, i) => (
-              <Reveal key={i} delay={i * 70}>
-                <div
-                  className="rounded-2xl border border-white/5 bg-white/[0.02] p-7 hover:border-white/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl cursor-pointer h-full"
+              <Reveal key={p.slug} delay={i * 70}>
+                <Link
+                  href={`/projetos/${p.slug}`}
+                  className="block rounded-2xl border border-white/5 bg-white/[0.02] p-7 hover:border-white/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl h-full"
                 >
                   <div className="flex items-center justify-between mb-5">
                     <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full"
@@ -356,9 +360,10 @@ export default async function HomePage() {
                   <h3 className="font-black text-white uppercase tracking-tight text-lg mb-2 group-hover:text-[#3AACB8] transition-colors duration-200">
                     {p.titulo}
                   </h3>
-                  <p className="text-white/55 text-sm font-medium leading-relaxed">{p.desc}</p>
+                  <p className="text-[#3AACB8] text-xs font-bold uppercase tracking-widest mb-3">{p.cliente}</p>
+                  <p className="text-white/55 text-sm font-medium leading-relaxed">{p.resumo}</p>
                   <div className="mt-5 w-8 h-0.5 rounded-full transition-all duration-300 group-hover:w-16" style={{ background: p.cor }} />
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>

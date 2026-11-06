@@ -47,8 +47,8 @@ const equipe = [
 
 const numeros = [
   { valor: '2016', label: 'Fundada em' },
-  { valor: '400+', label: 'Projetos Entregues' },
-  { valor: '380+', label: 'Clientes Atendidos' },
+  { valor: 'Completa', label: 'Site, sistema, design e redes' },
+  { valor: 'Próxima', label: 'Atendimento direto com você' },
   { valor: '4', label: 'Profissionais' },
 ];
 
