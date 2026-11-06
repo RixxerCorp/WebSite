@@ -30,17 +30,17 @@ const jetbrainsMono = localFont({
 export const metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: 'Rixxer | Software House em São Lourenço - MG',
+    default: 'Rixxer | Software House para todo o Brasil e exterior',
     template: '%s | Rixxer',
   },
   description:
-    'Software House especializada em sites, apps, sistemas e design em São Lourenço - MG.',
+    'Software House que atende todo o Brasil e o exterior, em português e inglês: sites, apps, sistemas, design e gestão de redes sociais.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
     siteName: 'Rixxer',
-    title: 'Rixxer | Software House em São Lourenço - MG',
+    title: 'Rixxer | Software House para todo o Brasil e exterior',
     description:
       'Sites, aplicativos, sistemas, redes sociais, design e SEO para o seu negócio crescer.',
     images: [{ url: '/og.jpg', width: 1200, height: 630, alt: 'Rixxer' }],

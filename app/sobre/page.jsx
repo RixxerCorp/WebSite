@@ -48,14 +48,14 @@ const equipe = [
 const numeros = [
   { valor: '2016', label: 'Fundada em' },
   { valor: 'Completa', label: 'Site, sistema, design e redes' },
-  { valor: 'Próxima', label: 'Atendimento direto com você' },
+  { valor: 'Global', label: 'Clientes no Brasil e no exterior' },
   { valor: '4', label: 'Profissionais' },
 ];
 
 export const metadata = {
   title: 'Sobre',
   description:
-    'Conheça a Rixxer: software house de São Lourenço - MG, com cultura de diversidade, liderança feminina e foco em resultado para o cliente.',
+    'Conheça a Rixxer: software house que atende todo o Brasil e o exterior, com cultura de diversidade, liderança feminina e foco em resultado para o cliente.',
   alternates: { canonical: '/sobre' },
 };
 
@@ -84,6 +84,9 @@ export default function SobrePage() {
               </p>
               <p className="text-white/55 text-base font-light leading-relaxed">
                 Desde o primeiro projeto, nosso foco nunca foi apenas entregar software. Foi entender o problema real, propor a solução certa e executar com excelência — independente do tamanho do cliente.
+              </p>
+              <p className="text-white/55 text-base font-light leading-relaxed mt-6">
+                Atendemos clientes em todo o Brasil e também no exterior, como Estados Unidos e Espanha. O atendimento é feito online, em português e inglês, com a mesma proximidade de quem está na sala ao lado.
               </p>
             </Reveal>
           </div>

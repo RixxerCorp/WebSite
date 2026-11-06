@@ -65,7 +65,7 @@ const servicos = [
 const numerosBase = [
   { valor: '10+', label: 'Anos de Mercado' },
   { valor: 'Completa', label: 'Site, sistema, design e redes' },
-  { valor: 'Próxima', label: 'Atendimento direto com você' },
+  { valor: 'Global', label: 'Atendimento em português e inglês' },
 ];
 
 const clientes = [

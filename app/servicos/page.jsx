@@ -88,7 +88,7 @@ const processo = [
 export const metadata = {
   title: 'Serviços',
   description:
-    'Desenvolvimento web, aplicativos mobile, sistemas sob medida, gestão de redes sociais, design gráfico e SEO para empresas em São Lourenço - MG e todo o Brasil.',
+    'Desenvolvimento web, aplicativos mobile, sistemas sob medida, gestão de redes sociais, design gráfico e SEO para empresas de todo o Brasil e do exterior.',
   alternates: { canonical: '/servicos' },
 };
 

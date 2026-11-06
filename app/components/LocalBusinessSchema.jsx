@@ -7,6 +7,8 @@ export default function LocalBusinessSchema({ rating }) {
     name: SITE.nome,
     image: `${SITE.url}/rixxer.png`,
     url: SITE.url,
+    areaServed: 'Worldwide',
+    knowsLanguage: ['pt-BR', 'en'],
     telephone: SITE.whatsapps.map((w) => `+${w.numero}`),
     address: {
       '@type': 'PostalAddress',
