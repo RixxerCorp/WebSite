@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Reveal from '../components/Reveal';
 import Link from 'next/link';
 import MagneticButton from '../components/MagneticButton';
+import { prefersReducedMotion } from '@/lib/motion';
 
 function XPattern() {
   return (
@@ -22,13 +23,31 @@ function XPattern() {
 }
 
 const categorias = ['Todos', 'Web', 'Mobile', 'Sistema', 'Design', 'Social'];
+const POR_PAGINA = 9;
 
 export default function ProjetosClient({ projetos }) {
   const [categoriaAtiva, setCategoriaAtiva] = useState('Todos');
 
+  const [pagina, setPagina] = useState(1);
+  const topoRef = useRef(null);
+
   const filtrados = categoriaAtiva === 'Todos'
     ? projetos
     : projetos.filter((p) => p.categoria === categoriaAtiva);
+
+  const totalPaginas = Math.max(1, Math.ceil(filtrados.length / POR_PAGINA));
+  const paginaAtual = Math.min(pagina, totalPaginas);
+  const inicio = (paginaAtual - 1) * POR_PAGINA;
+  const visiveis = filtrados.slice(inicio, inicio + POR_PAGINA);
+
+  function trocarCategoria(cat) {
+    setCategoriaAtiva(cat);
+    setPagina(1);
+  }
+  function irParaPagina(n) {
+    setPagina(n);
+    topoRef.current?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+  }
 
   return (
     <div className="bg-[#0D0D14] text-white">
@@ -56,10 +75,10 @@ export default function ProjetosClient({ projetos }) {
       </section>
 
       <section className="bg-[#F5F5F7] pt-16 pb-0">
-        <div className="max-w-7xl mx-auto px-6">
+        <div ref={topoRef} className="max-w-7xl mx-auto px-6 scroll-mt-24">
           <div className="flex flex-wrap gap-3 mb-12">
             {categorias.map((cat) => (
-              <button key={cat} onClick={() => setCategoriaAtiva(cat)}
+              <button key={cat} onClick={() => trocarCategoria(cat)}
                 className={`px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-widest transition-all duration-200
                   ${categoriaAtiva === cat
                     ? 'bg-[#6B2D8B] text-white shadow-lg shadow-purple-900/20'
@@ -70,12 +89,13 @@ export default function ProjetosClient({ projetos }) {
             ))}
             <span className="ml-auto text-gray-500 text-sm font-medium self-center">
               {filtrados.length} {filtrados.length === 1 ? 'projeto' : 'projetos'}
+              {totalPaginas > 1 && ` · página ${paginaAtual} de ${totalPaginas}`}
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-24">
-            {filtrados.map((p, i) => (
-              <Reveal key={`${categoriaAtiva}-${p.slug}`} delay={i * 60}
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${totalPaginas > 1 ? 'pb-12' : 'pb-24'}`}>
+            {visiveis.map((p, i) => (
+              <Reveal key={`${categoriaAtiva}-${paginaAtual}-${p.slug}`} delay={i * 60}
                 className={`bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full relative`}>
 
                 <div className="h-3 w-full" style={{ background: `linear-gradient(to right, ${p.cor}, #3AACB8)` }} />
@@ -117,6 +137,43 @@ export default function ProjetosClient({ projetos }) {
               </Reveal>
             ))}
           </div>
+
+          {totalPaginas > 1 && (
+            <nav aria-label="Paginação dos projetos" className="pb-24 flex flex-wrap items-center justify-center gap-2">
+              <button
+                type="button"
+                onClick={() => irParaPagina(paginaAtual - 1)}
+                disabled={paginaAtual === 1}
+                className="px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-widest bg-white text-gray-500 border border-gray-200 hover:border-[#6B2D8B] hover:text-[#6B2D8B] disabled:opacity-40 disabled:pointer-events-none transition-colors"
+              >
+                ← Anterior
+              </button>
+              {Array.from({ length: totalPaginas }, (_, k) => k + 1).map((n) => (
+                <button
+                  key={n}
+                  type="button"
+                  onClick={() => irParaPagina(n)}
+                  aria-label={`Página ${n}`}
+                  aria-current={n === paginaAtual ? 'page' : undefined}
+                  className={`w-10 h-10 rounded-lg font-bold text-sm transition-colors ${
+                    n === paginaAtual
+                      ? 'bg-[#6B2D8B] text-white shadow-lg shadow-purple-900/20'
+                      : 'bg-white text-gray-500 border border-gray-200 hover:border-[#6B2D8B] hover:text-[#6B2D8B]'
+                  }`}
+                >
+                  {n}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={() => irParaPagina(paginaAtual + 1)}
+                disabled={paginaAtual === totalPaginas}
+                className="px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-widest bg-white text-gray-500 border border-gray-200 hover:border-[#6B2D8B] hover:text-[#6B2D8B] disabled:opacity-40 disabled:pointer-events-none transition-colors"
+              >
+                Próxima →
+              </button>
+            </nav>
+          )}
         </div>
       </section>
 
