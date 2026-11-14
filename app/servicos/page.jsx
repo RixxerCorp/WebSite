@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Reveal from '../components/Reveal';
 import MagneticButton from '../components/MagneticButton';
 import {
@@ -213,6 +214,12 @@ export default function ServicosPage() {
           className="bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold px-10 py-4 rounded-lg uppercase tracking-widest text-sm shadow-xl shadow-purple-900/20">
           Solicitar Proposta
         </MagneticButton>
+        <p className="text-gray-500 text-sm font-medium mt-8">
+          Procurando uma loja virtual pronta, por assinatura?{' '}
+          <Link href="/lojas-virtuais" className="text-[#6B2D8B] font-bold underline underline-offset-4">
+            Conheça a Vitrine
+          </Link>
+        </p>
       </Reveal>
 
     </div>

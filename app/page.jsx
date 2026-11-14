@@ -9,6 +9,7 @@ import { getGoogleData } from '@/lib/google-reviews';
 import { projetos as projetosCadastrados } from '@/lib/projetos';
 import TerminalWidget from './components/TerminalWidget';
 import AlicerceCard from './components/AlicerceCard';
+import VitrineCard from './components/VitrineCard';
 import GoogleRating from './components/GoogleRating';
 import {
   IconGlobe,
@@ -270,6 +271,55 @@ export default async function HomePage() {
 
             <Reveal delay={150}>
               <AlicerceCard />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-[#6B2D8B]/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <Reveal delay={150} className="order-2 lg:order-1">
+              <VitrineCard />
+            </Reveal>
+
+            <Reveal className="order-1 lg:order-2">
+              <div className="flex items-center gap-3 mb-6">
+                <IconGlobe className="w-5 h-5 text-[#6B2D8B]" />
+                <span className="text-[#6B2D8B] text-xs font-bold uppercase tracking-[0.3em]">Produto Rixxer · Gerido por nós</span>
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-[#0D0D14] leading-[0.95] mb-6">
+                A vitrine da<br />
+                <span className="text-[#6B2D8B]">sua loja virtual.</span>
+              </h2>
+
+              <p className="text-gray-500 text-base font-light leading-relaxed mb-8 max-w-lg">
+                A <strong className="text-[#0D0D14] font-semibold">Vitrine</strong> é a loja virtual completa por assinatura: você não compra o sistema, paga uma mensalidade e vende. Pix e cartão, NF-e, frete e painel de gestão já vêm prontos, com a sua marca.
+              </p>
+
+              <ul className="flex flex-col gap-3 mb-10">
+                {[
+                  'Implantação de R$ 400 e mensalidade de R$ 150, sem taxa por venda da plataforma',
+                  'Pagamento por Pix e cartão, NF-e automática e frete pelo CEP',
+                  'Painel para produtos, pedidos, estoque, cupons e venda presencial',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm font-medium text-gray-600">
+                    <span className="w-5 h-5 rounded-full bg-[#6B2D8B]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <IconCheck className="w-3 h-3 text-[#6B2D8B]" strokeWidth="3" />
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <MagneticButton
+                href="/lojas-virtuais"
+                className="bg-[#6B2D8B] hover:bg-[#7B3FA0] text-white font-bold px-8 py-4 rounded-lg uppercase tracking-widest text-sm shadow-xl shadow-purple-900/20"
+              >
+                Conhecer a Vitrine →
+              </MagneticButton>
             </Reveal>
           </div>
         </div>

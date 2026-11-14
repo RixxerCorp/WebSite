@@ -4,7 +4,7 @@ import { projetos } from '@/lib/projetos';
 const BASE = SITE.url;
 
 export default function sitemap() {
-  const rotas = ['', '/servicos', '/projetos', '/sobre', '/contato', ...projetos.map((p) => `/projetos/${p.slug}`)];
+  const rotas = ['', '/servicos', '/lojas-virtuais', '/projetos', '/sobre', '/contato', ...projetos.map((p) => `/projetos/${p.slug}`)];
   return rotas.map((r) => ({
     url: `${BASE}${r}`,
     lastModified: new Date(),
