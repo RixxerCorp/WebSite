@@ -11,8 +11,8 @@ export const metadata = {
   alternates: { canonical: '/lojas-virtuais' },
 };
 
-// Preencha quando a loja de demonstração estiver no ar (ex.: 'https://lojas.rixxer.com.br').
-const URL_DEMO = null;
+// Loja de demonstração (instalação própria, com dados de exemplo).
+const URL_DEMO = 'https://vitrine.rixxer.com.br';
 
 const MENSAGEM = 'Olá! Tenho interesse na Vitrine, a loja virtual por assinatura da Rixxer.';
 const LINK_WHATSAPP = `${whatsappLink()}?text=${encodeURIComponent(MENSAGEM)}`;
